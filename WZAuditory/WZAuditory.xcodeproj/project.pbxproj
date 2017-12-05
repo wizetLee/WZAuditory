@@ -1,0 +1,855 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		846227751FD6B68000D37FAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846227741FD6B68000D37FAE /* AppDelegate.swift */; };
+		846227771FD6B68000D37FAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846227761FD6B68000D37FAE /* ViewController.swift */; };
+		8462277A1FD6B68000D37FAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846227781FD6B68000D37FAE /* Main.storyboard */; };
+		8462277C1FD6B68000D37FAE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8462277B1FD6B68000D37FAE /* Assets.xcassets */; };
+		8462277F1FD6B68000D37FAE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8462277D1FD6B68000D37FAE /* LaunchScreen.storyboard */; };
+		8462278A1FD6B68000D37FAE /* WZAuditoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846227891FD6B68000D37FAE /* WZAuditoryTests.swift */; };
+		846227951FD6B68000D37FAE /* WZAuditoryUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846227941FD6B68000D37FAE /* WZAuditoryUITests.swift */; };
+		846227E81FD6B7A000D37FAE /* 5Types.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227A41FD6B7A000D37FAE /* 5Types.caf */; };
+		846227E91FD6B7A000D37FAE /* AsianDuet.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227A51FD6B7A000D37FAE /* AsianDuet.caf */; };
+		846227EA1FD6B7A000D37FAE /* AsianPrayer.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227A61FD6B7A000D37FAE /* AsianPrayer.caf */; };
+		846227EB1FD6B7A000D37FAE /* Bamboo.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227A71FD6B7A000D37FAE /* Bamboo.caf */; };
+		846227EC1FD6B7A000D37FAE /* Beep.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227A81FD6B7A000D37FAE /* Beep.caf */; };
+		846227ED1FD6B7A000D37FAE /* Bhakti.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227A91FD6B7A000D37FAE /* Bhakti.caf */; };
+		846227EE1FD6B7A000D37FAE /* BucketDrops.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227AA1FD6B7A000D37FAE /* BucketDrops.caf */; };
+		846227EF1FD6B7A000D37FAE /* CalmLake.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227AB1FD6B7A000D37FAE /* CalmLake.caf */; };
+		846227F01FD6B7A000D37FAE /* Champagne.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227AC1FD6B7A000D37FAE /* Champagne.caf */; };
+		846227F11FD6B7A000D37FAE /* CherryBlossom.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227AD1FD6B7A000D37FAE /* CherryBlossom.caf */; };
+		846227F21FD6B7A000D37FAE /* Chimes.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227AE1FD6B7A000D37FAE /* Chimes.caf */; };
+		846227F31FD6B7A000D37FAE /* Chinatown.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227AF1FD6B7A000D37FAE /* Chinatown.caf */; };
+		846227F41FD6B7A000D37FAE /* ChineseFlute.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227B01FD6B7A000D37FAE /* ChineseFlute.caf */; };
+		846227F51FD6B7A000D37FAE /* Concentration.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227B11FD6B7A000D37FAE /* Concentration.caf */; };
+		846227F61FD6B7A000D37FAE /* CrackingShip.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227B21FD6B7A000D37FAE /* CrackingShip.caf */; };
+		846227F71FD6B7A000D37FAE /* DreamlessSleep.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227B31FD6B7A000D37FAE /* DreamlessSleep.caf */; };
+		846227F81FD6B7A000D37FAE /* Duck.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227B41FD6B7A000D37FAE /* Duck.caf */; };
+		846227F91FD6B7A000D37FAE /* ElectronicAlarm.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227B51FD6B7A000D37FAE /* ElectronicAlarm.caf */; };
+		846227FA1FD6B7A000D37FAE /* FieldWind.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227B61FD6B7A000D37FAE /* FieldWind.caf */; };
+		846227FB1FD6B7A000D37FAE /* ForestBirds.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227B71FD6B7A000D37FAE /* ForestBirds.caf */; };
+		846227FC1FD6B7A000D37FAE /* Frogs.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227B81FD6B7A000D37FAE /* Frogs.caf */; };
+		846227FD1FD6B7A000D37FAE /* GrandFatherClock.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227B91FD6B7A000D37FAE /* GrandFatherClock.caf */; };
+		846227FE1FD6B7A000D37FAE /* Harp.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227BA1FD6B7A000D37FAE /* Harp.caf */; };
+		846227FF1FD6B7A000D37FAE /* HealingWaves.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227BB1FD6B7A000D37FAE /* HealingWaves.caf */; };
+		846228001FD6B7A000D37FAE /* ITConcentration20Hz.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227BC1FD6B7A000D37FAE /* ITConcentration20Hz.caf */; };
+		846228011FD6B7A000D37FAE /* ITDreamlessSleep2.5Hz.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227BD1FD6B7A000D37FAE /* ITDreamlessSleep2.5Hz.caf */; };
+		846228021FD6B7A000D37FAE /* ITRelaxation10Hz.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227BE1FD6B7A000D37FAE /* ITRelaxation10Hz.caf */; };
+		846228031FD6B7A000D37FAE /* Japanese.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227BF1FD6B7A000D37FAE /* Japanese.caf */; };
+		846228041FD6B7A000D37FAE /* Journey.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227C01FD6B7A000D37FAE /* Journey.caf */; };
+		846228051FD6B7A000D37FAE /* Lament.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227C11FD6B7A000D37FAE /* Lament.caf */; };
+		846228061FD6B7A000D37FAE /* MeditationBowl.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227C21FD6B7A000D37FAE /* MeditationBowl.caf */; };
+		846228071FD6B7A000D37FAE /* OldBell.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227C31FD6B7A000D37FAE /* OldBell.caf */; };
+		846228081FD6B7A000D37FAE /* Pizzicato.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227C41FD6B7A000D37FAE /* Pizzicato.caf */; };
+		846228091FD6B7A000D37FAE /* Progressive.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227C51FD6B7A000D37FAE /* Progressive.caf */; };
+		8462280A1FD6B7A000D37FAE /* Relaxation.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227C61FD6B7A000D37FAE /* Relaxation.caf */; };
+		8462280B1FD6B7A000D37FAE /* Rooster.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227C71FD6B7A000D37FAE /* Rooster.caf */; };
+		8462280C1FD6B7A000D37FAE /* ScienceFiction.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227C81FD6B7A000D37FAE /* ScienceFiction.caf */; };
+		8462280D1FD6B7A000D37FAE /* SeaBirds.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227C91FD6B7A000D37FAE /* SeaBirds.caf */; };
+		8462280E1FD6B7A000D37FAE /* SecretPearls.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227CA1FD6B7A000D37FAE /* SecretPearls.caf */; };
+		8462280F1FD6B7A000D37FAE /* Silence.wav in Resources */ = {isa = PBXBuildFile; fileRef = 846227CB1FD6B7A000D37FAE /* Silence.wav */; };
+		846228101FD6B7A000D37FAE /* SilkRoute.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227CC1FD6B7A000D37FAE /* SilkRoute.caf */; };
+		846228111FD6B7A000D37FAE /* Spaceship.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227CD1FD6B7A000D37FAE /* Spaceship.caf */; };
+		846228121FD6B7A000D37FAE /* StormWaves.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227CE1FD6B7A000D37FAE /* StormWaves.caf */; };
+		846228131FD6B7A000D37FAE /* Sushibar.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227CF1FD6B7A000D37FAE /* Sushibar.caf */; };
+		846228141FD6B7A000D37FAE /* Taiko.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227D01FD6B7A000D37FAE /* Taiko.caf */; };
+		846228151FD6B7A000D37FAE /* ThirdEye.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227D11FD6B7A000D37FAE /* ThirdEye.caf */; };
+		846228161FD6B7A000D37FAE /* Thunderstorm.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227D21FD6B7A000D37FAE /* Thunderstorm.caf */; };
+		846228171FD6B7A000D37FAE /* TibetMountains.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227D31FD6B7A000D37FAE /* TibetMountains.caf */; };
+		846228181FD6B7A000D37FAE /* TraditionalAsian.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227D41FD6B7A000D37FAE /* TraditionalAsian.caf */; };
+		846228191FD6B7A000D37FAE /* TropicalRain.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227D51FD6B7A000D37FAE /* TropicalRain.caf */; };
+		8462281A1FD6B7A000D37FAE /* WaitingForWinter.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227D61FD6B7A000D37FAE /* WaitingForWinter.caf */; };
+		8462281B1FD6B7A000D37FAE /* Waterfall.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227D71FD6B7A000D37FAE /* Waterfall.caf */; };
+		8462281C1FD6B7A000D37FAE /* WaterPrayers.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227D81FD6B7A000D37FAE /* WaterPrayers.caf */; };
+		8462281D1FD6B7A000D37FAE /* WaterStream.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227D91FD6B7A000D37FAE /* WaterStream.caf */; };
+		8462281E1FD6B7A000D37FAE /* WaveSplashes.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227DA1FD6B7A000D37FAE /* WaveSplashes.caf */; };
+		8462281F1FD6B7A000D37FAE /* WhaleCry.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227DB1FD6B7A000D37FAE /* WhaleCry.caf */; };
+		846228201FD6B7A000D37FAE /* WoodChimes.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227DC1FD6B7A000D37FAE /* WoodChimes.caf */; };
+		846228211FD6B7A000D37FAE /* Xylophone.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227DD1FD6B7A000D37FAE /* Xylophone.caf */; };
+		846228221FD6B7A000D37FAE /* Yangtze.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227DE1FD6B7A000D37FAE /* Yangtze.caf */; };
+		846228231FD6B7A000D37FAE /* Cafe.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E01FD6B7A000D37FAE /* Cafe.m4a */; };
+		846228241FD6B7A000D37FAE /* CompleteNotification.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227E11FD6B7A000D37FAE /* CompleteNotification.caf */; };
+		846228251FD6B7A000D37FAE /* Empty.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E21FD6B7A000D37FAE /* Empty.m4a */; };
+		846228261FD6B7A000D37FAE /* Forest.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E31FD6B7A000D37FAE /* Forest.m4a */; };
+		846228271FD6B7A000D37FAE /* Muse.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E41FD6B7A000D37FAE /* Muse.m4a */; };
+		846228281FD6B7A000D37FAE /* MuteChecker.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227E51FD6B7A000D37FAE /* MuteChecker.caf */; };
+		846228291FD6B7A000D37FAE /* Ocean.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E61FD6B7A000D37FAE /* Ocean.m4a */; };
+		8462282A1FD6B7A000D37FAE /* Rain.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E71FD6B7A000D37FAE /* Rain.m4a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		846227861FD6B68000D37FAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 846227691FD6B68000D37FAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 846227701FD6B68000D37FAE;
+			remoteInfo = WZAuditory;
+		};
+		846227911FD6B68000D37FAE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 846227691FD6B68000D37FAE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 846227701FD6B68000D37FAE;
+			remoteInfo = WZAuditory;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		846227711FD6B68000D37FAE /* WZAuditory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WZAuditory.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		846227741FD6B68000D37FAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		846227761FD6B68000D37FAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		846227791FD6B68000D37FAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8462277B1FD6B68000D37FAE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8462277E1FD6B68000D37FAE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		846227801FD6B68000D37FAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846227851FD6B68000D37FAE /* WZAuditoryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WZAuditoryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		846227891FD6B68000D37FAE /* WZAuditoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZAuditoryTests.swift; sourceTree = "<group>"; };
+		8462278B1FD6B68000D37FAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846227901FD6B68000D37FAE /* WZAuditoryUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WZAuditoryUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		846227941FD6B68000D37FAE /* WZAuditoryUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZAuditoryUITests.swift; sourceTree = "<group>"; };
+		846227961FD6B68000D37FAE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		846227A41FD6B7A000D37FAE /* 5Types.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = 5Types.caf; sourceTree = "<group>"; };
+		846227A51FD6B7A000D37FAE /* AsianDuet.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AsianDuet.caf; sourceTree = "<group>"; };
+		846227A61FD6B7A000D37FAE /* AsianPrayer.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AsianPrayer.caf; sourceTree = "<group>"; };
+		846227A71FD6B7A000D37FAE /* Bamboo.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bamboo.caf; sourceTree = "<group>"; };
+		846227A81FD6B7A000D37FAE /* Beep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Beep.caf; sourceTree = "<group>"; };
+		846227A91FD6B7A000D37FAE /* Bhakti.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Bhakti.caf; sourceTree = "<group>"; };
+		846227AA1FD6B7A000D37FAE /* BucketDrops.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = BucketDrops.caf; sourceTree = "<group>"; };
+		846227AB1FD6B7A000D37FAE /* CalmLake.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CalmLake.caf; sourceTree = "<group>"; };
+		846227AC1FD6B7A000D37FAE /* Champagne.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Champagne.caf; sourceTree = "<group>"; };
+		846227AD1FD6B7A000D37FAE /* CherryBlossom.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CherryBlossom.caf; sourceTree = "<group>"; };
+		846227AE1FD6B7A000D37FAE /* Chimes.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chimes.caf; sourceTree = "<group>"; };
+		846227AF1FD6B7A000D37FAE /* Chinatown.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Chinatown.caf; sourceTree = "<group>"; };
+		846227B01FD6B7A000D37FAE /* ChineseFlute.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ChineseFlute.caf; sourceTree = "<group>"; };
+		846227B11FD6B7A000D37FAE /* Concentration.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Concentration.caf; sourceTree = "<group>"; };
+		846227B21FD6B7A000D37FAE /* CrackingShip.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CrackingShip.caf; sourceTree = "<group>"; };
+		846227B31FD6B7A000D37FAE /* DreamlessSleep.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = DreamlessSleep.caf; sourceTree = "<group>"; };
+		846227B41FD6B7A000D37FAE /* Duck.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Duck.caf; sourceTree = "<group>"; };
+		846227B51FD6B7A000D37FAE /* ElectronicAlarm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ElectronicAlarm.caf; sourceTree = "<group>"; };
+		846227B61FD6B7A000D37FAE /* FieldWind.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = FieldWind.caf; sourceTree = "<group>"; };
+		846227B71FD6B7A000D37FAE /* ForestBirds.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ForestBirds.caf; sourceTree = "<group>"; };
+		846227B81FD6B7A000D37FAE /* Frogs.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Frogs.caf; sourceTree = "<group>"; };
+		846227B91FD6B7A000D37FAE /* GrandFatherClock.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = GrandFatherClock.caf; sourceTree = "<group>"; };
+		846227BA1FD6B7A000D37FAE /* Harp.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Harp.caf; sourceTree = "<group>"; };
+		846227BB1FD6B7A000D37FAE /* HealingWaves.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HealingWaves.caf; sourceTree = "<group>"; };
+		846227BC1FD6B7A000D37FAE /* ITConcentration20Hz.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ITConcentration20Hz.caf; sourceTree = "<group>"; };
+		846227BD1FD6B7A000D37FAE /* ITDreamlessSleep2.5Hz.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ITDreamlessSleep2.5Hz.caf; sourceTree = "<group>"; };
+		846227BE1FD6B7A000D37FAE /* ITRelaxation10Hz.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ITRelaxation10Hz.caf; sourceTree = "<group>"; };
+		846227BF1FD6B7A000D37FAE /* Japanese.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Japanese.caf; sourceTree = "<group>"; };
+		846227C01FD6B7A000D37FAE /* Journey.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Journey.caf; sourceTree = "<group>"; };
+		846227C11FD6B7A000D37FAE /* Lament.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Lament.caf; sourceTree = "<group>"; };
+		846227C21FD6B7A000D37FAE /* MeditationBowl.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MeditationBowl.caf; sourceTree = "<group>"; };
+		846227C31FD6B7A000D37FAE /* OldBell.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = OldBell.caf; sourceTree = "<group>"; };
+		846227C41FD6B7A000D37FAE /* Pizzicato.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Pizzicato.caf; sourceTree = "<group>"; };
+		846227C51FD6B7A000D37FAE /* Progressive.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Progressive.caf; sourceTree = "<group>"; };
+		846227C61FD6B7A000D37FAE /* Relaxation.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Relaxation.caf; sourceTree = "<group>"; };
+		846227C71FD6B7A000D37FAE /* Rooster.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rooster.caf; sourceTree = "<group>"; };
+		846227C81FD6B7A000D37FAE /* ScienceFiction.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ScienceFiction.caf; sourceTree = "<group>"; };
+		846227C91FD6B7A000D37FAE /* SeaBirds.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SeaBirds.caf; sourceTree = "<group>"; };
+		846227CA1FD6B7A000D37FAE /* SecretPearls.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SecretPearls.caf; sourceTree = "<group>"; };
+		846227CB1FD6B7A000D37FAE /* Silence.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = Silence.wav; sourceTree = "<group>"; };
+		846227CC1FD6B7A000D37FAE /* SilkRoute.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SilkRoute.caf; sourceTree = "<group>"; };
+		846227CD1FD6B7A000D37FAE /* Spaceship.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Spaceship.caf; sourceTree = "<group>"; };
+		846227CE1FD6B7A000D37FAE /* StormWaves.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = StormWaves.caf; sourceTree = "<group>"; };
+		846227CF1FD6B7A000D37FAE /* Sushibar.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Sushibar.caf; sourceTree = "<group>"; };
+		846227D01FD6B7A000D37FAE /* Taiko.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Taiko.caf; sourceTree = "<group>"; };
+		846227D11FD6B7A000D37FAE /* ThirdEye.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = ThirdEye.caf; sourceTree = "<group>"; };
+		846227D21FD6B7A000D37FAE /* Thunderstorm.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Thunderstorm.caf; sourceTree = "<group>"; };
+		846227D31FD6B7A000D37FAE /* TibetMountains.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TibetMountains.caf; sourceTree = "<group>"; };
+		846227D41FD6B7A000D37FAE /* TraditionalAsian.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TraditionalAsian.caf; sourceTree = "<group>"; };
+		846227D51FD6B7A000D37FAE /* TropicalRain.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = TropicalRain.caf; sourceTree = "<group>"; };
+		846227D61FD6B7A000D37FAE /* WaitingForWinter.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WaitingForWinter.caf; sourceTree = "<group>"; };
+		846227D71FD6B7A000D37FAE /* Waterfall.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Waterfall.caf; sourceTree = "<group>"; };
+		846227D81FD6B7A000D37FAE /* WaterPrayers.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WaterPrayers.caf; sourceTree = "<group>"; };
+		846227D91FD6B7A000D37FAE /* WaterStream.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WaterStream.caf; sourceTree = "<group>"; };
+		846227DA1FD6B7A000D37FAE /* WaveSplashes.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WaveSplashes.caf; sourceTree = "<group>"; };
+		846227DB1FD6B7A000D37FAE /* WhaleCry.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WhaleCry.caf; sourceTree = "<group>"; };
+		846227DC1FD6B7A000D37FAE /* WoodChimes.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = WoodChimes.caf; sourceTree = "<group>"; };
+		846227DD1FD6B7A000D37FAE /* Xylophone.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Xylophone.caf; sourceTree = "<group>"; };
+		846227DE1FD6B7A000D37FAE /* Yangtze.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Yangtze.caf; sourceTree = "<group>"; };
+		846227E01FD6B7A000D37FAE /* Cafe.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Cafe.m4a; sourceTree = "<group>"; };
+		846227E11FD6B7A000D37FAE /* CompleteNotification.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CompleteNotification.caf; sourceTree = "<group>"; };
+		846227E21FD6B7A000D37FAE /* Empty.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Empty.m4a; sourceTree = "<group>"; };
+		846227E31FD6B7A000D37FAE /* Forest.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Forest.m4a; sourceTree = "<group>"; };
+		846227E41FD6B7A000D37FAE /* Muse.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Muse.m4a; sourceTree = "<group>"; };
+		846227E51FD6B7A000D37FAE /* MuteChecker.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuteChecker.caf; sourceTree = "<group>"; };
+		846227E61FD6B7A000D37FAE /* Ocean.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ocean.m4a; sourceTree = "<group>"; };
+		846227E71FD6B7A000D37FAE /* Rain.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rain.m4a; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8462276E1FD6B68000D37FAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846227821FD6B68000D37FAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8462278D1FD6B68000D37FAE /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		846227681FD6B68000D37FAE = {
+			isa = PBXGroup;
+			children = (
+				846227A21FD6B7A000D37FAE /* MediaResource */,
+				846227731FD6B68000D37FAE /* WZAuditory */,
+				846227881FD6B68000D37FAE /* WZAuditoryTests */,
+				846227931FD6B68000D37FAE /* WZAuditoryUITests */,
+				846227721FD6B68000D37FAE /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		846227721FD6B68000D37FAE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				846227711FD6B68000D37FAE /* WZAuditory.app */,
+				846227851FD6B68000D37FAE /* WZAuditoryTests.xctest */,
+				846227901FD6B68000D37FAE /* WZAuditoryUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		846227731FD6B68000D37FAE /* WZAuditory */ = {
+			isa = PBXGroup;
+			children = (
+				846227741FD6B68000D37FAE /* AppDelegate.swift */,
+				846227761FD6B68000D37FAE /* ViewController.swift */,
+				846227781FD6B68000D37FAE /* Main.storyboard */,
+				8462277B1FD6B68000D37FAE /* Assets.xcassets */,
+				8462277D1FD6B68000D37FAE /* LaunchScreen.storyboard */,
+				846227801FD6B68000D37FAE /* Info.plist */,
+			);
+			path = WZAuditory;
+			sourceTree = "<group>";
+		};
+		846227881FD6B68000D37FAE /* WZAuditoryTests */ = {
+			isa = PBXGroup;
+			children = (
+				846227891FD6B68000D37FAE /* WZAuditoryTests.swift */,
+				8462278B1FD6B68000D37FAE /* Info.plist */,
+			);
+			path = WZAuditoryTests;
+			sourceTree = "<group>";
+		};
+		846227931FD6B68000D37FAE /* WZAuditoryUITests */ = {
+			isa = PBXGroup;
+			children = (
+				846227941FD6B68000D37FAE /* WZAuditoryUITests.swift */,
+				846227961FD6B68000D37FAE /* Info.plist */,
+			);
+			path = WZAuditoryUITests;
+			sourceTree = "<group>";
+		};
+		846227A21FD6B7A000D37FAE /* MediaResource */ = {
+			isa = PBXGroup;
+			children = (
+				846227A31FD6B7A000D37FAE /* relaxMusic */,
+				846227DF1FD6B7A000D37FAE /* tideMusic */,
+			);
+			path = MediaResource;
+			sourceTree = "<group>";
+		};
+		846227A31FD6B7A000D37FAE /* relaxMusic */ = {
+			isa = PBXGroup;
+			children = (
+				846227A41FD6B7A000D37FAE /* 5Types.caf */,
+				846227A51FD6B7A000D37FAE /* AsianDuet.caf */,
+				846227A61FD6B7A000D37FAE /* AsianPrayer.caf */,
+				846227A71FD6B7A000D37FAE /* Bamboo.caf */,
+				846227A81FD6B7A000D37FAE /* Beep.caf */,
+				846227A91FD6B7A000D37FAE /* Bhakti.caf */,
+				846227AA1FD6B7A000D37FAE /* BucketDrops.caf */,
+				846227AB1FD6B7A000D37FAE /* CalmLake.caf */,
+				846227AC1FD6B7A000D37FAE /* Champagne.caf */,
+				846227AD1FD6B7A000D37FAE /* CherryBlossom.caf */,
+				846227AE1FD6B7A000D37FAE /* Chimes.caf */,
+				846227AF1FD6B7A000D37FAE /* Chinatown.caf */,
+				846227B01FD6B7A000D37FAE /* ChineseFlute.caf */,
+				846227B11FD6B7A000D37FAE /* Concentration.caf */,
+				846227B21FD6B7A000D37FAE /* CrackingShip.caf */,
+				846227B31FD6B7A000D37FAE /* DreamlessSleep.caf */,
+				846227B41FD6B7A000D37FAE /* Duck.caf */,
+				846227B51FD6B7A000D37FAE /* ElectronicAlarm.caf */,
+				846227B61FD6B7A000D37FAE /* FieldWind.caf */,
+				846227B71FD6B7A000D37FAE /* ForestBirds.caf */,
+				846227B81FD6B7A000D37FAE /* Frogs.caf */,
+				846227B91FD6B7A000D37FAE /* GrandFatherClock.caf */,
+				846227BA1FD6B7A000D37FAE /* Harp.caf */,
+				846227BB1FD6B7A000D37FAE /* HealingWaves.caf */,
+				846227BC1FD6B7A000D37FAE /* ITConcentration20Hz.caf */,
+				846227BD1FD6B7A000D37FAE /* ITDreamlessSleep2.5Hz.caf */,
+				846227BE1FD6B7A000D37FAE /* ITRelaxation10Hz.caf */,
+				846227BF1FD6B7A000D37FAE /* Japanese.caf */,
+				846227C01FD6B7A000D37FAE /* Journey.caf */,
+				846227C11FD6B7A000D37FAE /* Lament.caf */,
+				846227C21FD6B7A000D37FAE /* MeditationBowl.caf */,
+				846227C31FD6B7A000D37FAE /* OldBell.caf */,
+				846227C41FD6B7A000D37FAE /* Pizzicato.caf */,
+				846227C51FD6B7A000D37FAE /* Progressive.caf */,
+				846227C61FD6B7A000D37FAE /* Relaxation.caf */,
+				846227C71FD6B7A000D37FAE /* Rooster.caf */,
+				846227C81FD6B7A000D37FAE /* ScienceFiction.caf */,
+				846227C91FD6B7A000D37FAE /* SeaBirds.caf */,
+				846227CA1FD6B7A000D37FAE /* SecretPearls.caf */,
+				846227CB1FD6B7A000D37FAE /* Silence.wav */,
+				846227CC1FD6B7A000D37FAE /* SilkRoute.caf */,
+				846227CD1FD6B7A000D37FAE /* Spaceship.caf */,
+				846227CE1FD6B7A000D37FAE /* StormWaves.caf */,
+				846227CF1FD6B7A000D37FAE /* Sushibar.caf */,
+				846227D01FD6B7A000D37FAE /* Taiko.caf */,
+				846227D11FD6B7A000D37FAE /* ThirdEye.caf */,
+				846227D21FD6B7A000D37FAE /* Thunderstorm.caf */,
+				846227D31FD6B7A000D37FAE /* TibetMountains.caf */,
+				846227D41FD6B7A000D37FAE /* TraditionalAsian.caf */,
+				846227D51FD6B7A000D37FAE /* TropicalRain.caf */,
+				846227D61FD6B7A000D37FAE /* WaitingForWinter.caf */,
+				846227D71FD6B7A000D37FAE /* Waterfall.caf */,
+				846227D81FD6B7A000D37FAE /* WaterPrayers.caf */,
+				846227D91FD6B7A000D37FAE /* WaterStream.caf */,
+				846227DA1FD6B7A000D37FAE /* WaveSplashes.caf */,
+				846227DB1FD6B7A000D37FAE /* WhaleCry.caf */,
+				846227DC1FD6B7A000D37FAE /* WoodChimes.caf */,
+				846227DD1FD6B7A000D37FAE /* Xylophone.caf */,
+				846227DE1FD6B7A000D37FAE /* Yangtze.caf */,
+			);
+			path = relaxMusic;
+			sourceTree = "<group>";
+		};
+		846227DF1FD6B7A000D37FAE /* tideMusic */ = {
+			isa = PBXGroup;
+			children = (
+				846227E01FD6B7A000D37FAE /* Cafe.m4a */,
+				846227E11FD6B7A000D37FAE /* CompleteNotification.caf */,
+				846227E21FD6B7A000D37FAE /* Empty.m4a */,
+				846227E31FD6B7A000D37FAE /* Forest.m4a */,
+				846227E41FD6B7A000D37FAE /* Muse.m4a */,
+				846227E51FD6B7A000D37FAE /* MuteChecker.caf */,
+				846227E61FD6B7A000D37FAE /* Ocean.m4a */,
+				846227E71FD6B7A000D37FAE /* Rain.m4a */,
+			);
+			path = tideMusic;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		846227701FD6B68000D37FAE /* WZAuditory */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 846227991FD6B68000D37FAE /* Build configuration list for PBXNativeTarget "WZAuditory" */;
+			buildPhases = (
+				8462276D1FD6B68000D37FAE /* Sources */,
+				8462276E1FD6B68000D37FAE /* Frameworks */,
+				8462276F1FD6B68000D37FAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WZAuditory;
+			productName = WZAuditory;
+			productReference = 846227711FD6B68000D37FAE /* WZAuditory.app */;
+			productType = "com.apple.product-type.application";
+		};
+		846227841FD6B68000D37FAE /* WZAuditoryTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8462279C1FD6B68000D37FAE /* Build configuration list for PBXNativeTarget "WZAuditoryTests" */;
+			buildPhases = (
+				846227811FD6B68000D37FAE /* Sources */,
+				846227821FD6B68000D37FAE /* Frameworks */,
+				846227831FD6B68000D37FAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				846227871FD6B68000D37FAE /* PBXTargetDependency */,
+			);
+			name = WZAuditoryTests;
+			productName = WZAuditoryTests;
+			productReference = 846227851FD6B68000D37FAE /* WZAuditoryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8462278F1FD6B68000D37FAE /* WZAuditoryUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8462279F1FD6B68000D37FAE /* Build configuration list for PBXNativeTarget "WZAuditoryUITests" */;
+			buildPhases = (
+				8462278C1FD6B68000D37FAE /* Sources */,
+				8462278D1FD6B68000D37FAE /* Frameworks */,
+				8462278E1FD6B68000D37FAE /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				846227921FD6B68000D37FAE /* PBXTargetDependency */,
+			);
+			name = WZAuditoryUITests;
+			productName = WZAuditoryUITests;
+			productReference = 846227901FD6B68000D37FAE /* WZAuditoryUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		846227691FD6B68000D37FAE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0900;
+				LastUpgradeCheck = 0900;
+				ORGANIZATIONNAME = wizet;
+				TargetAttributes = {
+					846227701FD6B68000D37FAE = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+					};
+					846227841FD6B68000D37FAE = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 846227701FD6B68000D37FAE;
+					};
+					8462278F1FD6B68000D37FAE = {
+						CreatedOnToolsVersion = 9.0;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 846227701FD6B68000D37FAE;
+					};
+				};
+			};
+			buildConfigurationList = 8462276C1FD6B68000D37FAE /* Build configuration list for PBXProject "WZAuditory" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 846227681FD6B68000D37FAE;
+			productRefGroup = 846227721FD6B68000D37FAE /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				846227701FD6B68000D37FAE /* WZAuditory */,
+				846227841FD6B68000D37FAE /* WZAuditoryTests */,
+				8462278F1FD6B68000D37FAE /* WZAuditoryUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8462276F1FD6B68000D37FAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846228201FD6B7A000D37FAE /* WoodChimes.caf in Resources */,
+				846227EA1FD6B7A000D37FAE /* AsianPrayer.caf in Resources */,
+				846228091FD6B7A000D37FAE /* Progressive.caf in Resources */,
+				8462281E1FD6B7A000D37FAE /* WaveSplashes.caf in Resources */,
+				846227F21FD6B7A000D37FAE /* Chimes.caf in Resources */,
+				846228211FD6B7A000D37FAE /* Xylophone.caf in Resources */,
+				846227F01FD6B7A000D37FAE /* Champagne.caf in Resources */,
+				846228261FD6B7A000D37FAE /* Forest.m4a in Resources */,
+				846227F11FD6B7A000D37FAE /* CherryBlossom.caf in Resources */,
+				846227EF1FD6B7A000D37FAE /* CalmLake.caf in Resources */,
+				846227E81FD6B7A000D37FAE /* 5Types.caf in Resources */,
+				846228061FD6B7A000D37FAE /* MeditationBowl.caf in Resources */,
+				8462280C1FD6B7A000D37FAE /* ScienceFiction.caf in Resources */,
+				846228141FD6B7A000D37FAE /* Taiko.caf in Resources */,
+				846227F31FD6B7A000D37FAE /* Chinatown.caf in Resources */,
+				846228281FD6B7A000D37FAE /* MuteChecker.caf in Resources */,
+				846228001FD6B7A000D37FAE /* ITConcentration20Hz.caf in Resources */,
+				846228271FD6B7A000D37FAE /* Muse.m4a in Resources */,
+				846227FE1FD6B7A000D37FAE /* Harp.caf in Resources */,
+				846228241FD6B7A000D37FAE /* CompleteNotification.caf in Resources */,
+				846228021FD6B7A000D37FAE /* ITRelaxation10Hz.caf in Resources */,
+				846227FD1FD6B7A000D37FAE /* GrandFatherClock.caf in Resources */,
+				846228031FD6B7A000D37FAE /* Japanese.caf in Resources */,
+				846228291FD6B7A000D37FAE /* Ocean.m4a in Resources */,
+				846228121FD6B7A000D37FAE /* StormWaves.caf in Resources */,
+				846227F41FD6B7A000D37FAE /* ChineseFlute.caf in Resources */,
+				846227FF1FD6B7A000D37FAE /* HealingWaves.caf in Resources */,
+				846228171FD6B7A000D37FAE /* TibetMountains.caf in Resources */,
+				846227FB1FD6B7A000D37FAE /* ForestBirds.caf in Resources */,
+				8462281B1FD6B7A000D37FAE /* Waterfall.caf in Resources */,
+				846228041FD6B7A000D37FAE /* Journey.caf in Resources */,
+				846228231FD6B7A000D37FAE /* Cafe.m4a in Resources */,
+				846228051FD6B7A000D37FAE /* Lament.caf in Resources */,
+				846228081FD6B7A000D37FAE /* Pizzicato.caf in Resources */,
+				8462282A1FD6B7A000D37FAE /* Rain.m4a in Resources */,
+				846228161FD6B7A000D37FAE /* Thunderstorm.caf in Resources */,
+				846227EB1FD6B7A000D37FAE /* Bamboo.caf in Resources */,
+				846228251FD6B7A000D37FAE /* Empty.m4a in Resources */,
+				846227F91FD6B7A000D37FAE /* ElectronicAlarm.caf in Resources */,
+				846228221FD6B7A000D37FAE /* Yangtze.caf in Resources */,
+				846228181FD6B7A000D37FAE /* TraditionalAsian.caf in Resources */,
+				8462281D1FD6B7A000D37FAE /* WaterStream.caf in Resources */,
+				8462280E1FD6B7A000D37FAE /* SecretPearls.caf in Resources */,
+				8462277F1FD6B68000D37FAE /* LaunchScreen.storyboard in Resources */,
+				8462280A1FD6B7A000D37FAE /* Relaxation.caf in Resources */,
+				8462280F1FD6B7A000D37FAE /* Silence.wav in Resources */,
+				8462280D1FD6B7A000D37FAE /* SeaBirds.caf in Resources */,
+				846228011FD6B7A000D37FAE /* ITDreamlessSleep2.5Hz.caf in Resources */,
+				846227EC1FD6B7A000D37FAE /* Beep.caf in Resources */,
+				846227F71FD6B7A000D37FAE /* DreamlessSleep.caf in Resources */,
+				846228101FD6B7A000D37FAE /* SilkRoute.caf in Resources */,
+				846227FA1FD6B7A000D37FAE /* FieldWind.caf in Resources */,
+				846228131FD6B7A000D37FAE /* Sushibar.caf in Resources */,
+				8462281F1FD6B7A000D37FAE /* WhaleCry.caf in Resources */,
+				846227ED1FD6B7A000D37FAE /* Bhakti.caf in Resources */,
+				846227F61FD6B7A000D37FAE /* CrackingShip.caf in Resources */,
+				8462277C1FD6B68000D37FAE /* Assets.xcassets in Resources */,
+				846228191FD6B7A000D37FAE /* TropicalRain.caf in Resources */,
+				8462280B1FD6B7A000D37FAE /* Rooster.caf in Resources */,
+				846227FC1FD6B7A000D37FAE /* Frogs.caf in Resources */,
+				8462277A1FD6B68000D37FAE /* Main.storyboard in Resources */,
+				846227E91FD6B7A000D37FAE /* AsianDuet.caf in Resources */,
+				846228151FD6B7A000D37FAE /* ThirdEye.caf in Resources */,
+				8462281C1FD6B7A000D37FAE /* WaterPrayers.caf in Resources */,
+				846227EE1FD6B7A000D37FAE /* BucketDrops.caf in Resources */,
+				846228071FD6B7A000D37FAE /* OldBell.caf in Resources */,
+				846227F51FD6B7A000D37FAE /* Concentration.caf in Resources */,
+				8462281A1FD6B7A000D37FAE /* WaitingForWinter.caf in Resources */,
+				846228111FD6B7A000D37FAE /* Spaceship.caf in Resources */,
+				846227F81FD6B7A000D37FAE /* Duck.caf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846227831FD6B68000D37FAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8462278E1FD6B68000D37FAE /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8462276D1FD6B68000D37FAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846227771FD6B68000D37FAE /* ViewController.swift in Sources */,
+				846227751FD6B68000D37FAE /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		846227811FD6B68000D37FAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8462278A1FD6B68000D37FAE /* WZAuditoryTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8462278C1FD6B68000D37FAE /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				846227951FD6B68000D37FAE /* WZAuditoryUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		846227871FD6B68000D37FAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 846227701FD6B68000D37FAE /* WZAuditory */;
+			targetProxy = 846227861FD6B68000D37FAE /* PBXContainerItemProxy */;
+		};
+		846227921FD6B68000D37FAE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 846227701FD6B68000D37FAE /* WZAuditory */;
+			targetProxy = 846227911FD6B68000D37FAE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		846227781FD6B68000D37FAE /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				846227791FD6B68000D37FAE /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8462277D1FD6B68000D37FAE /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8462277E1FD6B68000D37FAE /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		846227971FD6B68000D37FAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		846227981FD6B68000D37FAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8462279A1FD6B68000D37FAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				INFOPLIST_FILE = WZAuditory/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.WZAuditory;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8462279B1FD6B68000D37FAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				INFOPLIST_FILE = WZAuditory/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.WZAuditory;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8462279D1FD6B68000D37FAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				INFOPLIST_FILE = WZAuditoryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.learn.WZAuditoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WZAuditory.app/WZAuditory";
+			};
+			name = Debug;
+		};
+		8462279E1FD6B68000D37FAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				INFOPLIST_FILE = WZAuditoryTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.learn.WZAuditoryTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WZAuditory.app/WZAuditory";
+			};
+			name = Release;
+		};
+		846227A01FD6B68000D37FAE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				INFOPLIST_FILE = WZAuditoryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.learn.WZAuditoryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WZAuditory;
+			};
+			name = Debug;
+		};
+		846227A11FD6B68000D37FAE /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
+				INFOPLIST_FILE = WZAuditoryUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = wizet.learn.WZAuditoryUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WZAuditory;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8462276C1FD6B68000D37FAE /* Build configuration list for PBXProject "WZAuditory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				846227971FD6B68000D37FAE /* Debug */,
+				846227981FD6B68000D37FAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		846227991FD6B68000D37FAE /* Build configuration list for PBXNativeTarget "WZAuditory" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8462279A1FD6B68000D37FAE /* Debug */,
+				8462279B1FD6B68000D37FAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8462279C1FD6B68000D37FAE /* Build configuration list for PBXNativeTarget "WZAuditoryTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8462279D1FD6B68000D37FAE /* Debug */,
+				8462279E1FD6B68000D37FAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8462279F1FD6B68000D37FAE /* Build configuration list for PBXNativeTarget "WZAuditoryUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				846227A01FD6B68000D37FAE /* Debug */,
+				846227A11FD6B68000D37FAE /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 846227691FD6B68000D37FAE /* Project object */;
+}
