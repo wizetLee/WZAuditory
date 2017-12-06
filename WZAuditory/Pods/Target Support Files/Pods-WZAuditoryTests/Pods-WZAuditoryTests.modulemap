@@ -1,0 +1,6 @@
+framework module Pods_WZAuditoryTests {
+  umbrella header "Pods-WZAuditoryTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

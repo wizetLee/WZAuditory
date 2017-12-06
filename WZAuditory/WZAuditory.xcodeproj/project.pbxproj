@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0F2519B7C200F2D79A1A69AE /* Pods_WZAuditoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76A4493C6D3890E8827D4DF /* Pods_WZAuditoryUITests.framework */; };
+		6FDC70DCC206EF763A93A1B6 /* Pods_WZAuditoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155E6E3735761CECA8EC98CD /* Pods_WZAuditoryTests.framework */; };
+		8460B99D1FD7819400F81E73 /* WZEnsembleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460B99B1FD7819400F81E73 /* WZEnsembleCell.swift */; };
+		8460B99E1FD7819400F81E73 /* WZEnsembleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8460B99C1FD7819400F81E73 /* WZEnsembleCell.xib */; };
 		846227751FD6B68000D37FAE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846227741FD6B68000D37FAE /* AppDelegate.swift */; };
 		846227771FD6B68000D37FAE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846227761FD6B68000D37FAE /* ViewController.swift */; };
 		8462277A1FD6B68000D37FAE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846227781FD6B68000D37FAE /* Main.storyboard */; };
@@ -81,6 +85,8 @@
 		846228281FD6B7A000D37FAE /* MuteChecker.caf in Resources */ = {isa = PBXBuildFile; fileRef = 846227E51FD6B7A000D37FAE /* MuteChecker.caf */; };
 		846228291FD6B7A000D37FAE /* Ocean.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E61FD6B7A000D37FAE /* Ocean.m4a */; };
 		8462282A1FD6B7A000D37FAE /* Rain.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E71FD6B7A000D37FAE /* Rain.m4a */; };
+		846A386D1FD7752F00C6FB7B /* WZEnsemble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A386C1FD7752F00C6FB7B /* WZEnsemble.swift */; };
+		B0A65E5A653D4F172087FCA0 /* Pods_WZAuditory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D257F2086A67918511FB14EB /* Pods_WZAuditory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +107,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		155E6E3735761CECA8EC98CD /* Pods_WZAuditoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WZAuditoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		49154484D46CA17D293A415E /* Pods-WZAuditoryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditoryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditoryUITests/Pods-WZAuditoryUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		8063415F9AAA633F823E98CF /* Pods-WZAuditoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditoryUITests/Pods-WZAuditoryUITests.release.xcconfig"; sourceTree = "<group>"; };
+		8460B99B1FD7819400F81E73 /* WZEnsembleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZEnsembleCell.swift; sourceTree = "<group>"; };
+		8460B99C1FD7819400F81E73 /* WZEnsembleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WZEnsembleCell.xib; sourceTree = "<group>"; };
 		846227711FD6B68000D37FAE /* WZAuditory.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WZAuditory.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		846227741FD6B68000D37FAE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		846227761FD6B68000D37FAE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -181,6 +192,13 @@
 		846227E51FD6B7A000D37FAE /* MuteChecker.caf */ = {isa = PBXFileReference; lastKnownFileType = file; path = MuteChecker.caf; sourceTree = "<group>"; };
 		846227E61FD6B7A000D37FAE /* Ocean.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ocean.m4a; sourceTree = "<group>"; };
 		846227E71FD6B7A000D37FAE /* Rain.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rain.m4a; sourceTree = "<group>"; };
+		846A386C1FD7752F00C6FB7B /* WZEnsemble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZEnsemble.swift; sourceTree = "<group>"; };
+		97CAA035E5E497BCC51ECA58 /* Pods-WZAuditory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditory.release.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditory/Pods-WZAuditory.release.xcconfig"; sourceTree = "<group>"; };
+		AD09461A1AC7684751D880C0 /* Pods-WZAuditoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditoryTests/Pods-WZAuditoryTests.release.xcconfig"; sourceTree = "<group>"; };
+		C589613436598DE576F547B8 /* Pods-WZAuditoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditoryTests/Pods-WZAuditoryTests.debug.xcconfig"; sourceTree = "<group>"; };
+		CEC576122E5BD1B0218C495D /* Pods-WZAuditory.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditory.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditory/Pods-WZAuditory.debug.xcconfig"; sourceTree = "<group>"; };
+		D257F2086A67918511FB14EB /* Pods_WZAuditory.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WZAuditory.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		F76A4493C6D3890E8827D4DF /* Pods_WZAuditoryUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WZAuditoryUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -188,6 +206,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0A65E5A653D4F172087FCA0 /* Pods_WZAuditory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -195,6 +214,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6FDC70DCC206EF763A93A1B6 /* Pods_WZAuditoryTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -202,12 +222,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0F2519B7C200F2D79A1A69AE /* Pods_WZAuditoryUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		431F4E3300F0BF8E8FC5D9C5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D257F2086A67918511FB14EB /* Pods_WZAuditory.framework */,
+				155E6E3735761CECA8EC98CD /* Pods_WZAuditoryTests.framework */,
+				F76A4493C6D3890E8827D4DF /* Pods_WZAuditoryUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		6ACD13972834FEC02B57506F /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CEC576122E5BD1B0218C495D /* Pods-WZAuditory.debug.xcconfig */,
+				97CAA035E5E497BCC51ECA58 /* Pods-WZAuditory.release.xcconfig */,
+				C589613436598DE576F547B8 /* Pods-WZAuditoryTests.debug.xcconfig */,
+				AD09461A1AC7684751D880C0 /* Pods-WZAuditoryTests.release.xcconfig */,
+				49154484D46CA17D293A415E /* Pods-WZAuditoryUITests.debug.xcconfig */,
+				8063415F9AAA633F823E98CF /* Pods-WZAuditoryUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		846227681FD6B68000D37FAE = {
 			isa = PBXGroup;
 			children = (
@@ -216,6 +260,8 @@
 				846227881FD6B68000D37FAE /* WZAuditoryTests */,
 				846227931FD6B68000D37FAE /* WZAuditoryUITests */,
 				846227721FD6B68000D37FAE /* Products */,
+				6ACD13972834FEC02B57506F /* Pods */,
+				431F4E3300F0BF8E8FC5D9C5 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -234,6 +280,9 @@
 			children = (
 				846227741FD6B68000D37FAE /* AppDelegate.swift */,
 				846227761FD6B68000D37FAE /* ViewController.swift */,
+				846A386C1FD7752F00C6FB7B /* WZEnsemble.swift */,
+				8460B99B1FD7819400F81E73 /* WZEnsembleCell.swift */,
+				8460B99C1FD7819400F81E73 /* WZEnsembleCell.xib */,
 				846227781FD6B68000D37FAE /* Main.storyboard */,
 				8462277B1FD6B68000D37FAE /* Assets.xcassets */,
 				8462277D1FD6B68000D37FAE /* LaunchScreen.storyboard */,
@@ -357,9 +406,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 846227991FD6B68000D37FAE /* Build configuration list for PBXNativeTarget "WZAuditory" */;
 			buildPhases = (
+				91C4AAB9E2433AEAA4E7B81E /* [CP] Check Pods Manifest.lock */,
 				8462276D1FD6B68000D37FAE /* Sources */,
 				8462276E1FD6B68000D37FAE /* Frameworks */,
 				8462276F1FD6B68000D37FAE /* Resources */,
+				BBA4627E8568069319F17430 /* [CP] Embed Pods Frameworks */,
+				6DD8756E677A85436086B6B7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -374,9 +426,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8462279C1FD6B68000D37FAE /* Build configuration list for PBXNativeTarget "WZAuditoryTests" */;
 			buildPhases = (
+				EC33439344E4CFF0D0D50E88 /* [CP] Check Pods Manifest.lock */,
 				846227811FD6B68000D37FAE /* Sources */,
 				846227821FD6B68000D37FAE /* Frameworks */,
 				846227831FD6B68000D37FAE /* Resources */,
+				B44BA7C1A741768EBA095803 /* [CP] Embed Pods Frameworks */,
+				F6996449A4C334ACB6ABDF01 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -392,9 +447,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8462279F1FD6B68000D37FAE /* Build configuration list for PBXNativeTarget "WZAuditoryUITests" */;
 			buildPhases = (
+				CCDF38053FC27A7362ACCA9F /* [CP] Check Pods Manifest.lock */,
 				8462278C1FD6B68000D37FAE /* Sources */,
 				8462278D1FD6B68000D37FAE /* Frameworks */,
 				8462278E1FD6B68000D37FAE /* Resources */,
+				964DF0A0DC94DC8224B9D992 /* [CP] Embed Pods Frameworks */,
+				F30ABDB3561061E821D4B6F0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -512,6 +570,7 @@
 				846228131FD6B7A000D37FAE /* Sushibar.caf in Resources */,
 				8462281F1FD6B7A000D37FAE /* WhaleCry.caf in Resources */,
 				846227ED1FD6B7A000D37FAE /* Bhakti.caf in Resources */,
+				8460B99E1FD7819400F81E73 /* WZEnsembleCell.xib in Resources */,
 				846227F61FD6B7A000D37FAE /* CrackingShip.caf in Resources */,
 				8462277C1FD6B68000D37FAE /* Assets.xcassets in Resources */,
 				846228191FD6B7A000D37FAE /* TropicalRain.caf in Resources */,
@@ -546,13 +605,153 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		6DD8756E677A85436086B6B7 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WZAuditory/Pods-WZAuditory-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		91C4AAB9E2433AEAA4E7B81E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		964DF0A0DC94DC8224B9D992 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WZAuditoryUITests/Pods-WZAuditoryUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B44BA7C1A741768EBA095803 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WZAuditoryTests/Pods-WZAuditoryTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BBA4627E8568069319F17430 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WZAuditory/Pods-WZAuditory-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCDF38053FC27A7362ACCA9F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		EC33439344E4CFF0D0D50E88 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F30ABDB3561061E821D4B6F0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WZAuditoryUITests/Pods-WZAuditoryUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F6996449A4C334ACB6ABDF01 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-WZAuditoryTests/Pods-WZAuditoryTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8462276D1FD6B68000D37FAE /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				846A386D1FD7752F00C6FB7B /* WZEnsemble.swift in Sources */,
 				846227771FD6B68000D37FAE /* ViewController.swift in Sources */,
 				846227751FD6B68000D37FAE /* AppDelegate.swift in Sources */,
+				8460B99D1FD7819400F81E73 /* WZEnsembleCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -716,6 +915,7 @@
 		};
 		8462279A1FD6B68000D37FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CEC576122E5BD1B0218C495D /* Pods-WZAuditory.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -731,6 +931,7 @@
 		};
 		8462279B1FD6B68000D37FAE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 97CAA035E5E497BCC51ECA58 /* Pods-WZAuditory.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -746,6 +947,7 @@
 		};
 		8462279D1FD6B68000D37FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C589613436598DE576F547B8 /* Pods-WZAuditoryTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -763,6 +965,7 @@
 		};
 		8462279E1FD6B68000D37FAE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD09461A1AC7684751D880C0 /* Pods-WZAuditoryTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -780,6 +983,7 @@
 		};
 		846227A01FD6B68000D37FAE /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49154484D46CA17D293A415E /* Pods-WZAuditoryUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -796,6 +1000,7 @@
 		};
 		846227A11FD6B68000D37FAE /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8063415F9AAA633F823E98CF /* Pods-WZAuditoryUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
