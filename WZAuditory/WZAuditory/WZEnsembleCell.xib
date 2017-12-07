@@ -4,8 +4,8 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -19,24 +19,13 @@
                 <rect key="frame" x="0.0" y="0.0" width="289" height="114"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="WZEnsembleCell" translatesAutoresizingMaskIntoConstraints="NO" id="MjW-8O-DZF">
+                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" restorationIdentifier="WZEnsembleCell" translatesAutoresizingMaskIntoConstraints="NO" id="MjW-8O-DZF">
                         <rect key="frame" x="0.0" y="0.0" width="289" height="114"/>
                     </imageView>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9h-Kd-ybS">
-                        <rect key="frame" x="0.0" y="0.0" width="44" height="44"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="44" id="A6S-Jr-mZm"/>
-                            <constraint firstAttribute="width" constant="44" id="qMu-yt-EOv"/>
-                        </constraints>
-                        <state key="normal" title="音量-"/>
-                        <connections>
-                            <action selector="leftAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LT3-0W-5LX"/>
-                        </connections>
-                    </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0N3-GI-Atm">
-                        <rect key="frame" x="245" y="0.0" width="44" height="44"/>
+                        <rect key="frame" x="144" y="0.0" width="144.5" height="44"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="44" id="FKQ-XU-OM0"/>
                             <constraint firstAttribute="height" constant="44" id="IZc-Ho-ViQ"/>
                         </constraints>
                         <state key="normal" title="音量+"/>
@@ -53,14 +42,27 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F9h-Kd-ybS">
+                        <rect key="frame" x="0.0" y="0.0" width="144.5" height="44"/>
+                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.25" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="44" id="A6S-Jr-mZm"/>
+                        </constraints>
+                        <state key="normal" title="音量-"/>
+                        <connections>
+                            <action selector="leftAction:" destination="gTV-IL-0wX" eventType="touchUpInside" id="LT3-0W-5LX"/>
+                        </connections>
+                    </button>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="F9h-Kd-ybS" firstAttribute="width" secondItem="0N3-GI-Atm" secondAttribute="width" id="5j6-BQ-1K9"/>
+                <constraint firstItem="0N3-GI-Atm" firstAttribute="leading" secondItem="F9h-Kd-ybS" secondAttribute="trailing" id="5ks-Py-5v9"/>
                 <constraint firstItem="F9h-Kd-ybS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Cof-Yk-Hm5"/>
-                <constraint firstItem="F9h-Kd-ybS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="topMargin" id="FlI-Hp-gvO"/>
                 <constraint firstAttribute="trailing" secondItem="MjW-8O-DZF" secondAttribute="trailing" id="MPZ-Hq-ldr"/>
                 <constraint firstItem="MjW-8O-DZF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Mvp-ET-bIW"/>
-                <constraint firstItem="0N3-GI-Atm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="topMargin" id="NhP-RF-fxo"/>
+                <constraint firstItem="F9h-Kd-ybS" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="UQ3-fb-shl"/>
+                <constraint firstItem="0N3-GI-Atm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="dQ1-Fv-kxf"/>
                 <constraint firstItem="6Aj-x4-JRZ" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="jDi-hN-HZq"/>
                 <constraint firstAttribute="trailing" secondItem="6Aj-x4-JRZ" secondAttribute="trailing" id="rP2-5r-U6m"/>
                 <constraint firstAttribute="bottom" secondItem="MjW-8O-DZF" secondAttribute="bottom" id="rW0-IA-EsX"/>
@@ -76,7 +78,7 @@
                 <outlet property="leftButton" destination="F9h-Kd-ybS" id="Z2B-fX-PUE"/>
                 <outlet property="rightButton" destination="0N3-GI-Atm" id="L1m-sE-rsd"/>
             </connections>
-            <point key="canvasLocation" x="111" y="48"/>
+            <point key="canvasLocation" x="52" y="56"/>
         </collectionViewCell>
     </objects>
 </document>

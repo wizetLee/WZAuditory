@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="WZAudioControlBar" id="iN0-l3-epB" customClass="WZAudioControlBar" customModule="WZAuditory" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="166"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DER-b0-fV1">
+                    <rect key="frame" x="0.0" y="0.0" width="125" height="166"/>
+                    <state key="normal" title="播放"/>
+                    <connections>
+                        <action selector="playPauseAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="J5o-65-cvT"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Flx-nn-mky">
+                    <rect key="frame" x="250" y="0.0" width="125" height="166"/>
+                    <state key="normal" title="清除"/>
+                    <connections>
+                        <action selector="clearAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="R2G-6J-uxf"/>
+                    </connections>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CH-tj-Mrf">
+                    <rect key="frame" x="117" y="0.0" width="125" height="166"/>
+                    <state key="normal" title="音量"/>
+                    <connections>
+                        <action selector="showVolumnControlAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Xqb-kP-5pp"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="DER-b0-fV1" firstAttribute="width" secondItem="0CH-tj-Mrf" secondAttribute="width" id="0n7-bg-x1G"/>
+                <constraint firstItem="0CH-tj-Mrf" firstAttribute="bottom" secondItem="Flx-nn-mky" secondAttribute="bottom" id="5DE-zs-xkV"/>
+                <constraint firstItem="Flx-nn-mky" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="5ey-G1-yZi"/>
+                <constraint firstItem="0CH-tj-Mrf" firstAttribute="width" secondItem="Flx-nn-mky" secondAttribute="width" id="7Eh-am-1aS"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="Flx-nn-mky" secondAttribute="bottom" id="HhP-hP-Xy4"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Flx-nn-mky" secondAttribute="trailing" id="JFE-za-Lr7"/>
+                <constraint firstItem="0CH-tj-Mrf" firstAttribute="top" secondItem="Flx-nn-mky" secondAttribute="top" id="SHp-Ro-JB6"/>
+                <constraint firstItem="DER-b0-fV1" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="dw7-ar-c6w"/>
+                <constraint firstItem="Flx-nn-mky" firstAttribute="leading" secondItem="0CH-tj-Mrf" secondAttribute="trailing" id="lED-M7-4g9"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="DER-b0-fV1" secondAttribute="bottom" id="mtg-Kw-hOh"/>
+                <constraint firstItem="DER-b0-fV1" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="qG5-ZI-waQ"/>
+                <constraint firstItem="0CH-tj-Mrf" firstAttribute="leading" secondItem="DER-b0-fV1" secondAttribute="trailing" id="qyj-Nd-Jh8"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <connections>
+                <outlet property="clearButton" destination="Flx-nn-mky" id="OBq-FU-8SR"/>
+                <outlet property="playPauseButton" destination="DER-b0-fV1" id="8ej-Mr-tea"/>
+                <outlet property="volumnButton" destination="0CH-tj-Mrf" id="GOB-wH-IWq"/>
+            </connections>
+            <point key="canvasLocation" x="-217.5" y="30"/>
+        </view>
+    </objects>
+</document>

@@ -13,7 +13,7 @@ import AVFoundation
 class WZEnsemble {
     ///音频列表
     lazy var audioMenu : Dictionary<URL , AVAudioPlayer> = {return Dictionary<URL , AVAudioPlayer>() }();
-    
+    let normalVolumn = 0.5
     /// 添加音频
     /// - Parameter url: 本地音频地址
     func appendAudioWithURL(url : URL) -> Void {
@@ -24,7 +24,7 @@ class WZEnsemble {
                 print("已添加")
             } else {
                 let audio : AVAudioPlayer = try! AVAudioPlayer(contentsOf: url)
-                audio.volume = 0.5;//默认值
+                audio.volume = Float(self.normalVolumn);//默认值
                 audio.prepareToPlay()
                 audio.play()
                 audio.numberOfLoops = -1
@@ -45,6 +45,29 @@ class WZEnsemble {
                 self.audioMenu.removeValue(forKey: url);
             }
         }
+    }
+    
+    
+    func pause() {
+        for player in audioMenu.values {
+            player.pause()
+        }
+    }
+    
+    func play() {
+        for player in audioMenu.values {
+            if !player.isPlaying {
+                player.play()
+            }
+        }
+    }
+    
+    func clear() {
+        for player in audioMenu.values {
+            player.stop()
+            player.delegate = nil
+        }
+        audioMenu.removeAll()
     }
     
     //声道 pan [-1, 1] [极左, 极右]

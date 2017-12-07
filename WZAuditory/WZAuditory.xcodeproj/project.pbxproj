@@ -86,6 +86,9 @@
 		846228291FD6B7A000D37FAE /* Ocean.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E61FD6B7A000D37FAE /* Ocean.m4a */; };
 		8462282A1FD6B7A000D37FAE /* Rain.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E71FD6B7A000D37FAE /* Rain.m4a */; };
 		846A386D1FD7752F00C6FB7B /* WZEnsemble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A386C1FD7752F00C6FB7B /* WZEnsemble.swift */; };
+		8479FE951FD8CEB6007B6732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846227781FD6B68000D37FAE /* Main.storyboard */; };
+		8479FE991FD8F9E2007B6732 /* WZAudioControlBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479FE981FD8F9E2007B6732 /* WZAudioControlBar.swift */; };
+		8479FE9B1FD8F9EB007B6732 /* WZAudioControlBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8479FE9A1FD8F9EB007B6732 /* WZAudioControlBar.xib */; };
 		B0A65E5A653D4F172087FCA0 /* Pods_WZAuditory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D257F2086A67918511FB14EB /* Pods_WZAuditory.framework */; };
 /* End PBXBuildFile section */
 
@@ -193,6 +196,8 @@
 		846227E61FD6B7A000D37FAE /* Ocean.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ocean.m4a; sourceTree = "<group>"; };
 		846227E71FD6B7A000D37FAE /* Rain.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rain.m4a; sourceTree = "<group>"; };
 		846A386C1FD7752F00C6FB7B /* WZEnsemble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZEnsemble.swift; sourceTree = "<group>"; };
+		8479FE981FD8F9E2007B6732 /* WZAudioControlBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZAudioControlBar.swift; sourceTree = "<group>"; };
+		8479FE9A1FD8F9EB007B6732 /* WZAudioControlBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WZAudioControlBar.xib; sourceTree = "<group>"; };
 		97CAA035E5E497BCC51ECA58 /* Pods-WZAuditory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditory.release.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditory/Pods-WZAuditory.release.xcconfig"; sourceTree = "<group>"; };
 		AD09461A1AC7684751D880C0 /* Pods-WZAuditoryTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditoryTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditoryTests/Pods-WZAuditoryTests.release.xcconfig"; sourceTree = "<group>"; };
 		C589613436598DE576F547B8 /* Pods-WZAuditoryTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditoryTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditoryTests/Pods-WZAuditoryTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -281,6 +286,8 @@
 				846227741FD6B68000D37FAE /* AppDelegate.swift */,
 				846227761FD6B68000D37FAE /* ViewController.swift */,
 				846A386C1FD7752F00C6FB7B /* WZEnsemble.swift */,
+				8479FE981FD8F9E2007B6732 /* WZAudioControlBar.swift */,
+				8479FE9A1FD8F9EB007B6732 /* WZAudioControlBar.xib */,
 				8460B99B1FD7819400F81E73 /* WZEnsembleCell.swift */,
 				8460B99C1FD7819400F81E73 /* WZEnsembleCell.xib */,
 				846227781FD6B68000D37FAE /* Main.storyboard */,
@@ -477,6 +484,11 @@
 					846227701FD6B68000D37FAE = {
 						CreatedOnToolsVersion = 9.0;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					846227841FD6B68000D37FAE = {
 						CreatedOnToolsVersion = 9.0;
@@ -546,6 +558,7 @@
 				846227FB1FD6B7A000D37FAE /* ForestBirds.caf in Resources */,
 				8462281B1FD6B7A000D37FAE /* Waterfall.caf in Resources */,
 				846228041FD6B7A000D37FAE /* Journey.caf in Resources */,
+				8479FE9B1FD8F9EB007B6732 /* WZAudioControlBar.xib in Resources */,
 				846228231FD6B7A000D37FAE /* Cafe.m4a in Resources */,
 				846228051FD6B7A000D37FAE /* Lament.caf in Resources */,
 				846228081FD6B7A000D37FAE /* Pizzicato.caf in Resources */,
@@ -593,6 +606,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8479FE951FD8CEB6007B6732 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -749,6 +763,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				846A386D1FD7752F00C6FB7B /* WZEnsemble.swift in Sources */,
+				8479FE991FD8F9E2007B6732 /* WZAudioControlBar.swift in Sources */,
 				846227771FD6B68000D37FAE /* ViewController.swift in Sources */,
 				846227751FD6B68000D37FAE /* AppDelegate.swift in Sources */,
 				8460B99D1FD7819400F81E73 /* WZEnsembleCell.swift in Sources */,
@@ -919,13 +934,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7MUPB6659U;
+				DEVELOPMENT_TEAM = G583SJY324;
 				INFOPLIST_FILE = WZAuditory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wizet.WZAuditory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -935,13 +951,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 7MUPB6659U;
+				DEVELOPMENT_TEAM = G583SJY324;
 				INFOPLIST_FILE = WZAuditory/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = wizet.WZAuditory;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
