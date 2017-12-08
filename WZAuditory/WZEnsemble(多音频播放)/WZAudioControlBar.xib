@@ -30,8 +30,8 @@
                         <action selector="clearAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="R2G-6J-uxf"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CH-tj-Mrf">
-                    <rect key="frame" x="117" y="0.0" width="125" height="166"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0CH-tj-Mrf">
+                    <rect key="frame" x="125" y="0.0" width="125" height="166"/>
                     <state key="normal" title="音量"/>
                     <connections>
                         <action selector="showVolumnControlAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="Xqb-kP-5pp"/>

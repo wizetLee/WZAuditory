@@ -8,6 +8,7 @@
 
 import Foundation
 import AVFoundation
+import MediaPlayer
 
 ///多重奏 用于播放本地的音频对象
 class WZEnsemble {
@@ -74,4 +75,67 @@ class WZEnsemble {
     //音量 volume
     //播放率 0.8~2.0
     //numberOfLoops  -1实现无缝循环
+    
+    ///检查播放状态
+    func isPlaying() -> Bool {
+        if self.audioMenu.count > 0 {
+           return (self.audioMenu.values.first)!.isPlaying
+        } else {
+            return false
+        }
+    }
+    
+    ///获取系统级别的声音控件
+    static func getSystemVolumeView() -> MPVolumeView {
+        let mpView : MPVolumeView = MPVolumeView(frame: CGRect.zero)
+        mpView.clipsToBounds = true
+        mpView.showsRouteButton = false
+        mpView.alpha = 0.0
+        mpView.layer.opacity = 0.0
+        mpView.isUserInteractionEnabled = false
+        mpView.sizeToFit()
+        //难过~香菇
+        mpView.showsVolumeSlider = true ///设置为true 才会能调节声音成功
+//        mpView.isHidden = true
+        return mpView
+    }
+    
+    
+    
+    ///调节系统级别的声音 [0, 1]
+    static func slideSystemVolumne(volumneView: MPVolumeView,  volumne : Float) {
+        var slider : UISlider?
+        for view in volumneView.subviews {
+            if ((view.classForCoder as? UISlider.Type) != nil) {
+                slider = view as? UISlider
+                break
+            }
+        }
+        slider?.setValue(volumne, animated: true)
+    }
+    
+    
+    static func slideSystemVolumneSlider(volumneView: MPVolumeView) -> UISlider? {
+        var slider : UISlider?
+        for view in volumneView.subviews {
+            if ((view.classForCoder as? UISlider.Type) != nil) {
+                slider = view as? UISlider
+                break
+            }
+        }
+        return  slider
+    }
+    
+    //获取当前系统级别的音量
+    static func getSystemVolume() -> Float {
+        let mpView : MPVolumeView = MPVolumeView()
+        var slider : UISlider?
+        for view in mpView.subviews {
+            if ((view.classForCoder as? UISlider.Type) != nil) {
+                slider = view as? UISlider
+                return slider?.value ?? 0
+            }
+        }
+        return 0
+    }
 }

@@ -86,6 +86,10 @@
 		846228291FD6B7A000D37FAE /* Ocean.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E61FD6B7A000D37FAE /* Ocean.m4a */; };
 		8462282A1FD6B7A000D37FAE /* Rain.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 846227E71FD6B7A000D37FAE /* Rain.m4a */; };
 		846A386D1FD7752F00C6FB7B /* WZEnsemble.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846A386C1FD7752F00C6FB7B /* WZEnsemble.swift */; };
+		847985381FDA229C002102DD /* WZBaseAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847985361FDA229C002102DD /* WZBaseAlert.swift */; };
+		8479853B1FDA22CE002102DD /* WZToast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479853A1FDA22CE002102DD /* WZToast.swift */; };
+		8479853D1FDA2D03002102DD /* WZEnsembleVolumeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479853C1FDA2D03002102DD /* WZEnsembleVolumeAlert.swift */; };
+		847985411FDA2FFA002102DD /* WZDefineFile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847985401FDA2FFA002102DD /* WZDefineFile.swift */; };
 		8479FE951FD8CEB6007B6732 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 846227781FD6B68000D37FAE /* Main.storyboard */; };
 		8479FE991FD8F9E2007B6732 /* WZAudioControlBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8479FE981FD8F9E2007B6732 /* WZAudioControlBar.swift */; };
 		8479FE9B1FD8F9EB007B6732 /* WZAudioControlBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8479FE9A1FD8F9EB007B6732 /* WZAudioControlBar.xib */; };
@@ -196,6 +200,10 @@
 		846227E61FD6B7A000D37FAE /* Ocean.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Ocean.m4a; sourceTree = "<group>"; };
 		846227E71FD6B7A000D37FAE /* Rain.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = Rain.m4a; sourceTree = "<group>"; };
 		846A386C1FD7752F00C6FB7B /* WZEnsemble.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZEnsemble.swift; sourceTree = "<group>"; };
+		847985361FDA229C002102DD /* WZBaseAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WZBaseAlert.swift; sourceTree = "<group>"; };
+		8479853A1FDA22CE002102DD /* WZToast.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WZToast.swift; sourceTree = "<group>"; };
+		8479853C1FDA2D03002102DD /* WZEnsembleVolumeAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZEnsembleVolumeAlert.swift; sourceTree = "<group>"; };
+		847985401FDA2FFA002102DD /* WZDefineFile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WZDefineFile.swift; sourceTree = "<group>"; };
 		8479FE981FD8F9E2007B6732 /* WZAudioControlBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZAudioControlBar.swift; sourceTree = "<group>"; };
 		8479FE9A1FD8F9EB007B6732 /* WZAudioControlBar.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WZAudioControlBar.xib; sourceTree = "<group>"; };
 		97CAA035E5E497BCC51ECA58 /* Pods-WZAuditory.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditory.release.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditory/Pods-WZAuditory.release.xcconfig"; sourceTree = "<group>"; };
@@ -260,6 +268,8 @@
 		846227681FD6B68000D37FAE = {
 			isa = PBXGroup;
 			children = (
+				847985341FDA1BFF002102DD /* WZEnsemble(多音频播放) */,
+				847985311FDA1A1B002102DD /* WZComponentLibrary */,
 				846227A21FD6B7A000D37FAE /* MediaResource */,
 				846227731FD6B68000D37FAE /* WZAuditory */,
 				846227881FD6B68000D37FAE /* WZAuditoryTests */,
@@ -285,11 +295,6 @@
 			children = (
 				846227741FD6B68000D37FAE /* AppDelegate.swift */,
 				846227761FD6B68000D37FAE /* ViewController.swift */,
-				846A386C1FD7752F00C6FB7B /* WZEnsemble.swift */,
-				8479FE981FD8F9E2007B6732 /* WZAudioControlBar.swift */,
-				8479FE9A1FD8F9EB007B6732 /* WZAudioControlBar.xib */,
-				8460B99B1FD7819400F81E73 /* WZEnsembleCell.swift */,
-				8460B99C1FD7819400F81E73 /* WZEnsembleCell.xib */,
 				846227781FD6B68000D37FAE /* Main.storyboard */,
 				8462277B1FD6B68000D37FAE /* Assets.xcassets */,
 				8462277D1FD6B68000D37FAE /* LaunchScreen.storyboard */,
@@ -404,6 +409,29 @@
 				846227E71FD6B7A000D37FAE /* Rain.m4a */,
 			);
 			path = tideMusic;
+			sourceTree = "<group>";
+		};
+		847985311FDA1A1B002102DD /* WZComponentLibrary */ = {
+			isa = PBXGroup;
+			children = (
+				847985401FDA2FFA002102DD /* WZDefineFile.swift */,
+				8479853A1FDA22CE002102DD /* WZToast.swift */,
+				847985361FDA229C002102DD /* WZBaseAlert.swift */,
+			);
+			path = WZComponentLibrary;
+			sourceTree = "<group>";
+		};
+		847985341FDA1BFF002102DD /* WZEnsemble(多音频播放) */ = {
+			isa = PBXGroup;
+			children = (
+				846A386C1FD7752F00C6FB7B /* WZEnsemble.swift */,
+				8479FE981FD8F9E2007B6732 /* WZAudioControlBar.swift */,
+				8479FE9A1FD8F9EB007B6732 /* WZAudioControlBar.xib */,
+				8460B99B1FD7819400F81E73 /* WZEnsembleCell.swift */,
+				8460B99C1FD7819400F81E73 /* WZEnsembleCell.xib */,
+				8479853C1FDA2D03002102DD /* WZEnsembleVolumeAlert.swift */,
+			);
+			path = "WZEnsemble(多音频播放)";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -763,7 +791,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				846A386D1FD7752F00C6FB7B /* WZEnsemble.swift in Sources */,
+				847985411FDA2FFA002102DD /* WZDefineFile.swift in Sources */,
+				847985381FDA229C002102DD /* WZBaseAlert.swift in Sources */,
+				8479853D1FDA2D03002102DD /* WZEnsembleVolumeAlert.swift in Sources */,
 				8479FE991FD8F9E2007B6732 /* WZAudioControlBar.swift in Sources */,
+				8479853B1FDA22CE002102DD /* WZToast.swift in Sources */,
 				846227771FD6B68000D37FAE /* ViewController.swift in Sources */,
 				846227751FD6B68000D37FAE /* AppDelegate.swift in Sources */,
 				8460B99D1FD7819400F81E73 /* WZEnsembleCell.swift in Sources */,

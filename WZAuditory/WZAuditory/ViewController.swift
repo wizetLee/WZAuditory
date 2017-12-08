@@ -9,6 +9,7 @@
 import UIKit
 import SnapKit
 import AVFoundation
+import MediaPlayer
 
 class ViewController: UIViewController , UICollectionViewDelegate , UICollectionViewDataSource {
    
@@ -18,8 +19,6 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
     var urlList : Array<URL> = Array<URL>()
     var controlBar : WZAudioControlBar?
     
-    
- 
     deinit {
         self.recoverAudioBackMode()
         NotificationCenter.default.removeObserver(self)
@@ -108,35 +107,38 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
         self.controlBar?.clearActionClosure = {
             weakSelf?.ensemble.clear()
             weakSelf?.recoverAudioBackMode()
+            weakSelf?.checkStatus()
+            weakSelf?.collection?.reloadData()
         }
         
+        ///显示调节系统声音的
         self.controlBar?.showVolumnControlActionClosure = {
             //处理系统级别的声音
+            WZEnsembleVolumeAlert(displayType: .gleamingly).alertShow()
         }
-        
+        ///全局暂停或者是播放
         self.controlBar?.playPauseActionClosure = {
             if weakSelf != nil {
-                var isPlaying = false
-                if weakSelf != nil
-                    && weakSelf!.ensemble.audioMenu.count > 0 {
-                    if(weakSelf?.ensemble.audioMenu.values.first)!.isPlaying {
-                        isPlaying = true
+                if weakSelf!.ensemble.isPlaying() {
+                    weakSelf!.ensemble.pause()
+                    weakSelf!.recoverAudioBackMode()
+                   
+                } else {
+                 
+                    if weakSelf!.ensemble.audioMenu.count == 0 {
+                        WZToast.toastWithContent(content: "当前无选中音乐")
+                    } else {
+                        weakSelf!.configAudioBackMode()
+                        weakSelf!.ensemble.play()
                     }
                 }
-                if isPlaying {
-                    weakSelf?.recoverAudioBackMode()
-                    weakSelf?.ensemble.pause()
-                    
-                } else {
-                    weakSelf?.configAudioBackMode()
-                    weakSelf?.ensemble.play()
-                    
-                }
+                weakSelf?.checkStatus()
             }
         }
-        
+
         self.view.addSubview(self.controlBar!)
         self.view.addSubview(self.collection!)
+        
     }
     
     //MARK:  针对于safeArea在viewDidLoad为zero 目前的处理方式 重新布局
@@ -170,6 +172,16 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
         }
     }
     
+    //根据播放状态  修改UI
+    func checkStatus()  {
+        //检查状态修改UI
+        if self.ensemble.isPlaying() {
+            self.controlBar?.playPauseButton.setTitle("暂停", for: UIControlState.normal)
+        } else {
+            self.controlBar?.playPauseButton.setTitle("播放", for: UIControlState.normal)
+        }
+    }
+    
     // MARK: - UICollectionViewDataSource
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.urlList.count
@@ -186,33 +198,41 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
         cell.setIsPlaying(boolean: self.ensemble.audioMenu[self.urlList[indexPath.row]] != nil)
         cell.setVolumn(volumn: CGFloat(self.ensemble.audioMenu[self.urlList[indexPath.row]]?.volume ?? Float(self.ensemble.normalVolumn)))
         
+        ///点击事件 播放 暂停
         cell.tapActionClosure = {
             
             let inside = (weakSelf != nil && weakSelf!.urlList.count > indexPath.row && weakSelf!.ensemble.audioMenu[weakSelf!.urlList[indexPath.row]] != nil)
+            
             if inside {
                 weakSelf!.ensemble.removeAudioWithURL(url: (weakSelf?.urlList[indexPath.row])!)
                 cell.setIsPlaying(boolean: false)
                 cell.setVolumn(volumn: CGFloat(weakSelf!.ensemble.normalVolumn))
                 
-               
-                if weakSelf?.ensemble.audioMenu.count == 0 {
-                     ///当前没有音频在播放需要切换回默认的类型
+                if weakSelf!.ensemble.audioMenu.count == 0 {
+                    ///当前没有音频在播放需要切换回默认的类型
                     weakSelf?.recoverAudioBackMode()
                 }
+                
             } else {
                 
                 if AVAudioSession.sharedInstance().category != AVAudioSessionCategoryPlayback {
-                        ///如果当前session的category非“理想类型”的时候需要切换
-                        weakSelf?.configAudioBackMode()
-                } else {
-                    
+                    ///如果当前session的category非“理想类型”的时候需要切换
+                    weakSelf?.configAudioBackMode()
                 }
 
                 weakSelf?.ensemble.appendAudioWithURL(url: (weakSelf?.urlList[indexPath.row])!)
                 cell.setIsPlaying(boolean: true)
+                
+                //全体播放  因为有一些可能是全局暂停的乐器
+                weakSelf!.ensemble.play()
             }
+            
+            //检查状态修改UI
+            //处理UI 恢复状态
+            weakSelf?.checkStatus()
         }
         
+        ///降低音量
         cell.leftActionClosure = {
             let inside = (weakSelf != nil && weakSelf!.urlList.count > indexPath.row && weakSelf!.ensemble.audioMenu[weakSelf!.urlList[indexPath.row]] != nil)
             if inside {
@@ -221,19 +241,9 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
                 weakSelf!.ensemble.audioMenu[weakSelf!.urlList[indexPath.row]]!.volume = volumn
                 cell.setVolumn(volumn: CGFloat(volumn))
             }
-            //约束更新
-//            UIView.animate(withDuration: 4, animations: {
-//                weakSelf?.collection?.snp.remakeConstraints({ (make) in
-//                    make.left.equalTo(100)
-//                    make.right.equalTo(-100)
-//                    make.top.equalTo(100)
-//                    make.bottom.equalTo(-100)
-//                })
-//                self.view.layoutIfNeeded()//动态更新约束 需要重新检查约束 需要使用这个方法
-//            });
-            
         }
         
+        ///提高音量
         cell.rightActionClosure = {
             let inside = (weakSelf != nil && weakSelf!.urlList.count > indexPath.row && weakSelf!.ensemble.audioMenu[weakSelf!.urlList[indexPath.row]] != nil)
             if inside {
@@ -245,19 +255,7 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
         }
         return cell
     }
-    
-//    override func traitCollectionDidChange(_ previousTraitCollection: UITraitCollection?) {
-//        //更新约束
-//        super.traitCollectionDidChange(previousTraitCollection)
-//        self.collection?.snp.makeConstraints({ (make) in
-//
-//            make.top.equalToSuperview()
-//            make.left.equalToSuperview()
-//            make.bottom.equalToSuperview()
-//            make.right.equalToSuperview()
-//        })
-//    }
-    
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -268,8 +266,8 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
     ///恢复默认的后台播放模式
     func recoverAudioBackMode() {
         let audioSession = AVAudioSession.sharedInstance()
-        try? audioSession.setCategory(AVAudioSessionCategorySoloAmbient)//默认模式
         try? audioSession.setActive(false, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
+        try? audioSession.setCategory(AVAudioSessionCategorySoloAmbient, with: AVAudioSessionCategoryOptions())//默认模式
     }
     
     ///设置后台播放模式
@@ -277,7 +275,7 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
         //配置后台播放
         let audioSession = AVAudioSession.sharedInstance()
         try? audioSession.setActive(true, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
-        try? audioSession.setCategory(AVAudioSessionCategoryPlayback)
+        try? audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions())//取消混合和duck模式
         /* MixWithOthers is only valid with AVAudioSessionCategoryPlayAndRecord, AVAudioSessionCategoryPlayback, and  AVAudioSessionCategoryMultiRoute */
         //        public static var mixWithOthers: AVAudioSessionCategoryOptions { get }
         
@@ -317,7 +315,9 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
                 print("开始中断")
                 //中断播放
                 self.ensemble.pause()
-                
+                //处理UI 恢复状态
+                self.checkStatus()
+              
             } else if interruptionType == AVAudioSessionInterruptionType.ended.rawValue {
                 print("结束中断")
                 let interruptOption = sender.userInfo?[AVAudioSessionInterruptionOptionKey] as! UInt
@@ -337,10 +337,15 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
                     self.ensemble.play()
 //Step 3 切换回AVAudioSessionCategoryPlayback模式
                     self.configAudioBackMode()//又把模式调回去AVAudioSessionCategoryPlayback
-                    print("resumed")
+                   print("resumed")
                 } else {
+                    self.ensemble.pause()
+                    //恢复状态
                     print("can not resume")
                 }
+                
+                //处理UI 恢复状态
+                self.checkStatus()
             }
         }
     }
