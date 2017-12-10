@@ -25,7 +25,7 @@ class WZEnsembleVolumeAlert: WZBaseAlert {
         let width : CGFloat = SCREEN_WIDTH - gap * 2
 //        var height : CGFloat = SCREEN_HEIGHT - 44.0
         if #available(iOS 11.0, *) {
-            y -= SCREEN_HEIGHT - self.safeAreaInsets.bottom
+            y = y - self.safeAreaInsets.bottom
         }
         
         slider.frame = CGRect(x: gap, y: y, width: width, height: 44.0)

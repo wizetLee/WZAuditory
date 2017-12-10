@@ -211,7 +211,7 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
         
         let tmpStr = self.relaxList[indexPath.row]
         if tmpStr.lengthOfBytes(using: tmpStr.fastestEncoding) > 0 {
-            cell.imageView.image = UIImage.init(named: tmpStr  + "-Icon_110x110_" )
+            cell.imageView.image = UIImage.init(named: tmpStr  + "_thumbnail" )
         } else {
             cell.imageView.image = nil
         }
