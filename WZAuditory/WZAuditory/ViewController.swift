@@ -17,6 +17,7 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
     var collection : UICollectionView?
     var ensemble : WZEnsemble = {return WZEnsemble()}()
     var urlList : Array<URL> = Array<URL>()
+    var relaxList : Array<String> = Array<String>()
     var controlBar : WZAudioControlBar?
     
     deinit {
@@ -30,12 +31,11 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
         self.audioConfigNotification()
       
        
-        let relaxList = ["5Types",
+        self.relaxList = ["5Types",
                          "AsianDuet",
                          "AsianPrayer",
                          "Bamboo",
                          "Beep",
-                         "Bhakti",
                          "BucketDrops",
                          "CalmLake",
                          "Champagne",
@@ -43,6 +43,7 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
                          "Chimes",
                          "Chinatown",
                          "ChineseFlute",
+                         "Cicadas",
                          "Concentration",
                          "CrackingShip",
                          "Duck",
@@ -76,6 +77,16 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
                          "ThirdEye",
                          "Thunderstorm",
                          "TibetMountains",
+                         "TraditionalAsian",
+                         "TropicalRain",
+                         "WaitingForWinter",
+                         "Waterfall",
+                         "WaterPrayers",
+                         "WaveSplashes",
+                         "WhaleCry",
+                         "WoodChimes",
+                         "Xylophone",
+                         "Yangtze",
                          ]
         for name in relaxList {
             let url = Bundle.main.url(forResource: name, withExtension: "caf")
@@ -198,6 +209,12 @@ class ViewController: UIViewController , UICollectionViewDelegate , UICollection
         cell.setIsPlaying(boolean: self.ensemble.audioMenu[self.urlList[indexPath.row]] != nil)
         cell.setVolumn(volumn: CGFloat(self.ensemble.audioMenu[self.urlList[indexPath.row]]?.volume ?? Float(self.ensemble.normalVolumn)))
         
+        let tmpStr = self.relaxList[indexPath.row]
+        if tmpStr.lengthOfBytes(using: tmpStr.fastestEncoding) > 0 {
+            cell.imageView.image = UIImage.init(named: tmpStr  + "-Icon_110x110_" )
+        } else {
+            cell.imageView.image = nil
+        }
         ///点击事件 播放 暂停
         cell.tapActionClosure = {
             
