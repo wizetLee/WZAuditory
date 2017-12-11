@@ -15,6 +15,7 @@ final class WZMusicHub: NSObject {
     private override init() {}//外部不可访问
     var playingURL : URL?        //正在播放或者是暂停的URL
     var isPlaying : Bool = false //是否正在播放
+    var currentPlayingIndex : IndexPath?
 }
 
 class WZMusicEntity {

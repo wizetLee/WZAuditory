@@ -9,7 +9,8 @@
 import UIKit
 
 class WZMusicHubController: UIViewController {
-
+    var musicEntity : WZMusicEntity?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
