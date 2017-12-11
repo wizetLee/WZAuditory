@@ -136,7 +136,9 @@ class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableVi
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let tmpEntity = WZMusicHub.share.entityList[indexPath.row];
+        
         if tmpEntity.playing == true {
+            self.intoMusicHub()
             return
         }
         
@@ -154,8 +156,11 @@ class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableVi
 //            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
             tableView.reloadData()
         }
-        
-        let vc : WZMusicHubController = WZMusicHubController()
+        self.intoMusicHub()
+    }
+    
+    func intoMusicHub() -> Void {
+        let vc : WZMusicHubController = UIStoryboard(name: "Main", bundle: Bundle.main).instantiateViewController(withIdentifier: "WZMusicHubController") as! WZMusicHubController
         self.navigationController?.pushViewController(vc, animated: true)
     }
     

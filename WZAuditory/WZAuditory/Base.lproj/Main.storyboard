@@ -28,7 +28,7 @@
         <!--Music Hub Controller-->
         <scene sceneID="DB5-bb-izw">
             <objects>
-                <viewController restorationIdentifier="WZMusicHubController" id="440-Wo-63E" customClass="WZMusicHubController" customModule="WZAuditory" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="WZMusicHubController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="440-Wo-63E" customClass="WZMusicHubController" customModule="WZAuditory" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8oi-Yn-Wia">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
