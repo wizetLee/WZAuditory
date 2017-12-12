@@ -37,9 +37,9 @@ class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableVi
         super.viewWillLayoutSubviews()
         self.table?.snp.makeConstraints({ (make) in
             if #available(iOS 11.0, *) {
-                make.top.equalToSuperview()
-            } else {
                 make.top.equalTo(self.navigationController!.navigationBar.bounds.size.height + UIApplication.shared.statusBarFrame.size.height)
+            } else {
+                make.top.equalToSuperview()
             }
             make.left.right.bottom.equalToSuperview()
         })

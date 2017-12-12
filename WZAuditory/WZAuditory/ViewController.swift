@@ -31,7 +31,6 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
         self.table!.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: UITableViewCell.description())
         self.table!.delegate = self
         self.table!.dataSource = self
-
     }
     
     //MARK:  针对于safeArea在viewDidLoad为zero 目前的处理方式 重新布局
