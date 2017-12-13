@@ -9,7 +9,27 @@
 import UIKit
 import SnapKit
 
-class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableViewDataSource, WZMusicHubProtocol {
+    func desc() -> String {
+        return self.description
+    }
+    
+    func play(currentIndex: IndexPath) {
+        table?.reloadData()
+    }
+    
+    func pause(currentIndex: IndexPath) {
+        table?.reloadData()
+    }
+    
+    func next(nextIndex: IndexPath, currentIndex: IndexPath) {
+        table?.reloadData()
+    }
+    
+    func last(lastIndex: IndexPath, currentIndex: IndexPath) {
+        table?.reloadData()
+    }
+    
    
 
     var table : UITableView?
@@ -17,10 +37,25 @@ class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
-        
         self.configData()
         self.createViews()
+        WZMusicHub.share.appendObserver(element: self)
+        
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .done, target: self, action: #selector(back(sender:)))
     }
+    
+    @objc func back(sender : UIBarButtonItem) {
+        //MARK: - 寻求非手动移除监控的办法
+        WZMusicHub.share.removeObserver(element: self)
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    
+    deinit {
+        print(self.description)
+    }
+    
+    
 
     func createViews()  {
         self.table = UITableView(frame: self.view.bounds, style: .plain)
@@ -123,39 +158,34 @@ class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableVi
             if WZMusicHub.share.entityList[indexPath.row].bundlePath != nil {
                 let tmpEntity = WZMusicHub.share.entityList[indexPath.row];
                 cell.titleLabel.text = tmpEntity.bundlePath?.lastPathComponent
-                cell.titleLabel.textColor = tmpEntity.playing ? UIColor.red : UIColor.black
+                if WZMusicHub.share.currentPlayingIndex?.row == indexPath.row {
+                    cell.titleLabel.textColor = UIColor.red
+                } else {
+                    cell.titleLabel.textColor = UIColor.black
+                }
                 cell.subtitleLabel.textColor = cell.titleLabel.textColor
             } else {
                 cell.titleLabel.textColor = UIColor.black
                 cell.subtitleLabel.textColor = UIColor.black
             }
+            
+            
+            
         }
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let tmpEntity = WZMusicHub.share.entityList[indexPath.row];
-        
-        if tmpEntity.playing == true {
-            self.intoMusicHub()
-            return
-        }
-        
-        if WZMusicHub.share.currentPlayingIndex != nil {
-            let lastIndexPath = WZMusicHub.share.currentPlayingIndex!;
-            WZMusicHub.share.entityList[lastIndexPath.row].playing = false;
-            WZMusicHub.share.entityList[indexPath.row].playing = true;
-            //通知到那边
-//            tableView.reloadRows(at: [indexPath, lastIndexPath], with: UITableViewRowAnimation.none)
-            tableView.reloadData()
-            WZMusicHub.share.currentPlayingIndex = indexPath;
+        if WZMusicHub.share.currentPlayingIndex?.row == indexPath.row {
+            
         } else {
-            WZMusicHub.share.currentPlayingIndex = indexPath;
-             WZMusicHub.share.entityList[indexPath.row].playing = true;
-//            tableView.reloadRows(at: [indexPath], with: UITableViewRowAnimation.automatic)
-            tableView.reloadData()
+            WZMusicHub.share.nextSong = true
+            WZMusicHub.share.currentPlayingIndex = indexPath
         }
+
+        WZMusicHub.share.play()
+        tableView.reloadData()
         self.intoMusicHub()
     }
     

@@ -10,7 +10,27 @@ import UIKit
 
 
 
-class WZMusicHubController: UIViewController {
+class WZMusicHubController: UIViewController, WZMusicHubProtocol {
+    func play(currentIndex: IndexPath) {
+        self.updateView()
+    }
+    
+    func pause(currentIndex: IndexPath) {
+        self.updateView()
+    }
+    
+    func next(nextIndex: IndexPath, currentIndex: IndexPath) {
+        self.updateView()
+    }
+    
+    func last(lastIndex: IndexPath, currentIndex: IndexPath) {
+        self.updateView()
+    }
+    
+    func desc() -> String {
+        return self.description
+    }
+    
   
     var musicEntity : WZMusicEntity?
     
@@ -19,6 +39,10 @@ class WZMusicHubController: UIViewController {
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var lastBtn: UIButton!
     @IBOutlet weak var playModeBtn: UIButton!
+    
+    deinit {
+        print(self.description)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,11 +62,7 @@ class WZMusicHubController: UIViewController {
         lastBtn .setImage(UIImage(named: "cm2_vehicle_btn_prev") , for: .normal)
         lastBtn .setImage(UIImage(named: "cm2_vehicle_btn_prev_prs") , for: .highlighted)
         
-        //播放
-        playBtn .setImage(UIImage(named: "cm2_vehicle_btn_play") , for: .normal)
-        playBtn .setImage(UIImage(named: "cm2_vehicle_btn_play_prs") , for: .highlighted)
-        //暂停
-        playBtn .setImage(UIImage(named: "cm2_vehicle_btn_pause") , for: .selected)
+        playBtn .setImage(UIImage(named: "cm2_vehicle_btn_pause") , for: .normal)
         playBtn .setImage(UIImage(named: "cm2_vehicle_btn_pause_prs") , for: .highlighted)
         
         //播放列表
@@ -59,29 +79,50 @@ class WZMusicHubController: UIViewController {
         //单曲
 //        listBtn .setImage(UIImage(named: "cm2_play_btn_one") , for: .normal)
 //        listBtn .setImage(UIImage(named: "cm2_play_btn_one_prs") , for: .highlighted)
-        
-        
+        WZMusicHub.share.appendObserver(element: self)
+        self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .done, target: self, action: #selector(back(sender:)))
+
     }
     
-
+    @objc func back(sender : UIBarButtonItem) {
+        //MARK: - 寻求非手动移除监控的办法
+        WZMusicHub.share.removeObserver(element: self)
+        self.navigationController?.popViewController(animated: true)
+        
+    }
     @IBAction func playModePick(_ sender: UIButton) {
     }
     
     @IBAction func last(_ sender: UIButton) {
+        WZMusicHub.share.last()
     }
     
     
     @IBAction func playOrPause(_ sender: UIButton) {
-        if WZMusicHub.share.isPlaying == false {
-            WZMusicHub.share.play()
-        } else {
+        if WZMusicHub.share.player != nil
+            && WZMusicHub.share.player!.timeControlStatus == .playing {
             WZMusicHub.share.pause()
+        } else {
+            WZMusicHub.share.play()
         }
-        
+        self.updateView()
+    }
+    
+    func updateView() -> Void {
+        if WZMusicHub.share.isPlaying == true {
+            //暂停
+            playBtn .setImage(UIImage(named: "cm2_vehicle_btn_pause") , for: .normal)
+            playBtn .setImage(UIImage(named: "cm2_vehicle_btn_pause_prs") , for: .highlighted)
+        } else {
+            //播放
+            playBtn .setImage(UIImage(named: "cm2_vehicle_btn_play") , for: .normal)
+            playBtn .setImage(UIImage(named: "cm2_vehicle_btn_play_prs") , for: .highlighted)
+        }
     }
     
     
     @IBAction func next(_ sender: UIButton) {
+        WZMusicHub.share.next()
     }
  
     @IBAction func showList(_ sender: UIButton) {
