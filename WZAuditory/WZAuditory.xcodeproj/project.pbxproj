@@ -124,7 +124,7 @@
 		40FF520C1FDD782500A80B89 /* WZMusicRecycleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40FF520A1FDD782500A80B89 /* WZMusicRecycleCell.swift */; };
 		40FF520D1FDD782500A80B89 /* WZMusicRecycleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 40FF520B1FDD782500A80B89 /* WZMusicRecycleCell.xib */; };
 		6FDC70DCC206EF763A93A1B6 /* Pods_WZAuditoryTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 155E6E3735761CECA8EC98CD /* Pods_WZAuditoryTests.framework */; };
-		840F2D011FDFEA14000E59D6 /* WZAudioFileStreamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840F2CFF1FDFEA14000E59D6 /* WZAudioFileStreamController.swift */; };
+		840E3E981FE3A28F00A5D559 /* WZAudioFileStreamController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 840E3E971FE3A28F00A5D559 /* WZAudioFileStreamController.swift */; };
 		840F2D021FDFEA14000E59D6 /* WZAudioFileStreamController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 840F2D001FDFEA14000E59D6 /* WZAudioFileStreamController.xib */; };
 		8460B99D1FD7819400F81E73 /* WZEnsembleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8460B99B1FD7819400F81E73 /* WZEnsembleCell.swift */; };
 		8460B99E1FD7819400F81E73 /* WZEnsembleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8460B99C1FD7819400F81E73 /* WZEnsembleCell.xib */; };
@@ -403,7 +403,7 @@
 		40FF520B1FDD782500A80B89 /* WZMusicRecycleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WZMusicRecycleCell.xib; sourceTree = "<group>"; };
 		49154484D46CA17D293A415E /* Pods-WZAuditoryUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditoryUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditoryUITests/Pods-WZAuditoryUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		8063415F9AAA633F823E98CF /* Pods-WZAuditoryUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-WZAuditoryUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-WZAuditoryUITests/Pods-WZAuditoryUITests.release.xcconfig"; sourceTree = "<group>"; };
-		840F2CFF1FDFEA14000E59D6 /* WZAudioFileStreamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZAudioFileStreamController.swift; sourceTree = "<group>"; };
+		840E3E971FE3A28F00A5D559 /* WZAudioFileStreamController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZAudioFileStreamController.swift; sourceTree = "<group>"; };
 		840F2D001FDFEA14000E59D6 /* WZAudioFileStreamController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WZAudioFileStreamController.xib; sourceTree = "<group>"; };
 		8460B99B1FD7819400F81E73 /* WZEnsembleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZEnsembleCell.swift; sourceTree = "<group>"; };
 		8460B99C1FD7819400F81E73 /* WZEnsembleCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WZEnsembleCell.xib; sourceTree = "<group>"; };
@@ -761,7 +761,7 @@
 				400875011FDD2C8400A8662B /* WZMusicRecycleController.swift */,
 				8471D4D61FDE541A00A9CF87 /* WZMusicEntity.swift */,
 				40FF520A1FDD782500A80B89 /* WZMusicRecycleCell.swift */,
-				840F2CFF1FDFEA14000E59D6 /* WZAudioFileStreamController.swift */,
+				840E3E971FE3A28F00A5D559 /* WZAudioFileStreamController.swift */,
 				840F2D001FDFEA14000E59D6 /* WZAudioFileStreamController.xib */,
 				40FF520B1FDD782500A80B89 /* WZMusicRecycleCell.xib */,
 				846227781FD6B68000D37FAE /* Main.storyboard */,
@@ -1505,7 +1505,7 @@
 				847985381FDA229C002102DD /* WZBaseAlert.swift in Sources */,
 				8479853D1FDA2D03002102DD /* WZEnsembleVolumeAlert.swift in Sources */,
 				8479FE991FD8F9E2007B6732 /* WZAudioControlBar.swift in Sources */,
-				840F2D011FDFEA14000E59D6 /* WZAudioFileStreamController.swift in Sources */,
+				840E3E981FE3A28F00A5D559 /* WZAudioFileStreamController.swift in Sources */,
 				8471D4D31FDE080200A9CF87 /* WZEnsembleController.swift in Sources */,
 				8479853B1FDA22CE002102DD /* WZToast.swift in Sources */,
 				846227771FD6B68000D37FAE /* ViewController.swift in Sources */,

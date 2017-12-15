@@ -26,8 +26,7 @@ class WZAudioFileStreamController: UIViewController {
         /// 返回值用来判断是否成功初始化（OSStatus == noErr）。
         
         selfInstance = unsafeBitCast(self, to: UnsafeMutableRawPointer.self)
-        
-//        let aaa : OSStatus = AudioFileStreamOpen(<#T##inClientData: UnsafeMutableRawPointer?##UnsafeMutableRawPointer?#>, <#T##inPropertyListenerProc: AudioFileStream_PropertyListenerProc##AudioFileStream_PropertyListenerProc##(UnsafeMutableRawPointer, AudioFileStreamID, AudioFileStreamPropertyID, UnsafeMutablePointer<AudioFileStreamPropertyFlags>) -> Void#>, <#T##inPacketsProc: AudioFileStream_PacketsProc##AudioFileStream_PacketsProc##(UnsafeMutableRawPointer, UInt32, UInt32, UnsafeRawPointer, UnsafeMutablePointer<AudioStreamPacketDescription>) -> Void#>, <#T##inFileTypeHint: AudioFileTypeID##AudioFileTypeID#>, <#T##outAudioFileStream: UnsafeMutablePointer<AudioFileStreamID?>##UnsafeMutablePointer<AudioFileStreamID?>#>)
+
      
     }
 
