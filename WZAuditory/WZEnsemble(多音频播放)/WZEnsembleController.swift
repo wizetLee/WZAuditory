@@ -348,7 +348,7 @@ class  WZEnsembleController: UIViewController , UICollectionViewDelegate , UICol
                     try? audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions(rawValue: AVAudioSessionCategoryOptions.RawValue(UInt8(AVAudioSessionCategoryOptions.mixWithOthers.rawValue)|UInt8(AVAudioSessionCategoryOptions.duckOthers.rawValue))))
                     
                     /*
-                     code 560557684  AVAudioSessionErrorCodeCannotInterruptOthers   一位别的应用在使用audio
+                     code 560557684  AVAudioSessionErrorCodeCannotInterruptOthers  因为别的应用在使用audio
                      */
                     //Step 2 播放音频
                     self.ensemble.play()

@@ -52,7 +52,9 @@ class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableVi
     
     
     deinit {
-        print(self.description)
+        
+        ///打印log
+        print(self.desc() + " : " + #function)
     }
     
     
