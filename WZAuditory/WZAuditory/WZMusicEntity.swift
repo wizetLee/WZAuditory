@@ -9,6 +9,7 @@
 import Foundation
 import AVFoundation
 import UIKit
+import MediaPlayer //锁屏控制
 
 enum WZMusicPlayMode  {
     case random
@@ -34,27 +35,46 @@ protocol WZMusicHubProtocol : class {
 
 //单例模式 所有音乐的目录缓存器
 final class WZMusicHub: NSObject {
-    
-    var entityList : Array<WZMusicEntity> = Array<WZMusicEntity>()
+
     static let share = WZMusicHub()
     private override init() {
         super.init()
         NotificationCenter.default.addObserver(self, selector: #selector(audioItemDidPlayToEndTime(notification :)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         self.audioConfigNotification()
+        UIApplication.shared.beginReceivingRemoteControlEvents()
     }//外部不可访问
     
     deinit {
+       UIApplication.shared.endReceivingRemoteControlEvents()
         NotificationCenter.default.removeObserver(self)
     }
-    
-    var playingURL : URL?        //正在播放或者是暂停的URL
-    var nextSong : Bool = false //是否正在播放
+    ///播放体数组
+    var entityList : Array<WZMusicEntity> = Array<WZMusicEntity>()
+    //正在播放或者是暂停的URL
+    var playingURL : URL?
+    ////是否要播放的是下一首歌
+    var nextSong : Bool = false
+    //当前播放音乐的角标
     var currentPlayingIndex : IndexPath?
-    var observersList: Array<WZMusicHubProtocol> = Array<WZMusicHubProtocol>()//监听者列表
+    //监听者列表
+    var observersList: Array<WZMusicHubProtocol> = Array<WZMusicHubProtocol>()
+    //音乐播放器
     var player : AVPlayer?
+    //判断是否正在播放
     var isPlaying = false
+    //进度监听
     var progressObserve : Any?
+    //播放模式。默认循环
     var playMode : WZMusicPlayMode = WZMusicPlayMode.loop
+    var currentEntity : WZMusicEntity? {
+        get {
+            if currentPlayingIndex == nil {
+                return nil
+            } else {
+                return entityList[currentPlayingIndex!.row]
+            }
+        }
+    }
     
     func appendObserver(element : WZMusicHubProtocol) -> Void {
         self.observersList.append(element)
@@ -165,6 +185,22 @@ final class WZMusicHub: NSObject {
                 //处理时间回调
             })
            
+            let entity = self.currentEntity
+            if entity != nil {
+                //    设置后台播放时显示的东西，例如歌曲名字，图片等
+                let image = UIImage(named: entity!.clear!)
+                if image != nil {
+                    let artWork = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: { (size) -> UIImage in
+                        return image!
+                    })
+                    MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle : entity!.bundlePath!
+                        , MPMediaItemPropertyArtist : "wizet"
+                        , MPMediaItemPropertyArtwork : artWork]
+                }
+               
+            }
+     
+            
         } else {
             assert(false, "状态错误")
             return
@@ -183,6 +219,21 @@ final class WZMusicHub: NSObject {
         self.recoverAudioBackMode()
     }
     
+    //MARK: - 远程控制
+    func remoteControlReceivedWithEvent(event : UIEvent) -> Void {
+        if event.subtype == UIEventSubtype.remoteControlPlay {
+            WZMusicHub.share.play()
+        } else if event.subtype == UIEventSubtype.remoteControlPause {
+            WZMusicHub.share.pause()
+        } else if event.subtype == UIEventSubtype.remoteControlNextTrack {
+            WZMusicHub.share.next()
+        } else if event.subtype == UIEventSubtype.remoteControlPreviousTrack {
+            WZMusicHub.share.last()
+        } else if event.subtype == UIEventSubtype.remoteControlTogglePlayPause {
+            //耳机的播放暂停
+            print("未知类型")
+        }
+    }
     
     //MARK: - 对于其他APP也有音频视频相关的一个比较好的处理方式
     ///恢复默认的后台播放模式
@@ -269,6 +320,8 @@ final class WZMusicHub: NSObject {
 }
 
 class WZMusicEntity {
+    var clear : String?
+    var thunbmail : String?
     var bundlePath: URL?//本地bundle保存的路径
     var localPath : URL?//本地磁盘保存的路径
     var remoteURL : URL?//远程URL    

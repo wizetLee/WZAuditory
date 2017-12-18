@@ -39,6 +39,7 @@ class WZMusicHubController: UIViewController, WZMusicHubProtocol {
     @IBOutlet weak var playBtn: UIButton!
     @IBOutlet weak var lastBtn: UIButton!
     @IBOutlet weak var playModeBtn: UIButton!
+    @IBOutlet weak var coverImageView: UIImageView!
     
     deinit {
         print(self.description)
@@ -81,7 +82,8 @@ class WZMusicHubController: UIViewController, WZMusicHubProtocol {
 //        listBtn .setImage(UIImage(named: "cm2_play_btn_one_prs") , for: .highlighted)
         WZMusicHub.share.appendObserver(element: self)
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "返回", style: .done, target: self, action: #selector(back(sender:)))
-
+        
+        self.updateView()
     }
     
     @objc func back(sender : UIBarButtonItem) {
@@ -109,6 +111,8 @@ class WZMusicHubController: UIViewController, WZMusicHubProtocol {
     }
     
     func updateView() -> Void {
+        
+         self.coverImageView.image = UIImage(named: WZMusicHub.share.currentEntity!.clear!)
         if WZMusicHub.share.isPlaying == true {
             //暂停
             playBtn .setImage(UIImage(named: "cm2_vehicle_btn_pause") , for: .normal)

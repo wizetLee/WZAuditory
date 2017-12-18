@@ -8,6 +8,7 @@
 
 import UIKit
 import SnapKit
+import MediaPlayer
 
 class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableViewDataSource, WZMusicHubProtocol {
     func desc() -> String {
@@ -52,7 +53,6 @@ class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableVi
     
     
     deinit {
-        
         ///打印log
         print(self.desc() + " : " + #function)
     }
@@ -143,6 +143,8 @@ class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableVi
         
         for tmpStr in relaxList {
             let entity : WZMusicEntity = WZMusicEntity()
+            entity.thunbmail = tmpStr + "_thumbnail"
+            entity.clear = tmpStr + "_clear"
             entity.bundlePath = Bundle.main.url(forResource: tmpStr, withExtension: "caf")
             WZMusicHub.share.entityList.append(entity)
         }

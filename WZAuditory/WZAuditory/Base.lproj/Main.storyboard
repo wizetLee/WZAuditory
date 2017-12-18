@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TlZ-AQ-83v">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TlZ-AQ-83v">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13772"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -167,16 +168,27 @@
                                     <constraint firstItem="MNb-Lm-6MV" firstAttribute="top" secondItem="K0C-qS-G79" secondAttribute="top" id="rrv-J6-2vs"/>
                                 </constraints>
                             </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5aR-sG-GwT">
+                                <rect key="frame" x="0.0" y="156" width="375" height="375"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="5aR-sG-GwT" secondAttribute="height" multiplier="1:1" id="Duy-TZ-KBe"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="5aR-sG-GwT" firstAttribute="centerX" secondItem="hHy-f7-xQM" secondAttribute="centerX" id="6lS-2l-AR1"/>
+                            <constraint firstItem="5aR-sG-GwT" firstAttribute="centerY" secondItem="hHy-f7-xQM" secondAttribute="centerY" id="Jov-8M-ENZ"/>
+                            <constraint firstItem="5aR-sG-GwT" firstAttribute="leading" secondItem="hHy-f7-xQM" secondAttribute="leading" id="Nqw-BV-0ms"/>
                             <constraint firstItem="K0C-qS-G79" firstAttribute="leading" secondItem="hHy-f7-xQM" secondAttribute="leading" id="fgn-Ab-QeF"/>
                             <constraint firstItem="hHy-f7-xQM" firstAttribute="bottom" secondItem="K0C-qS-G79" secondAttribute="bottom" id="kQd-21-JBS"/>
+                            <constraint firstItem="hHy-f7-xQM" firstAttribute="trailing" secondItem="5aR-sG-GwT" secondAttribute="trailing" id="tjd-1Y-iOg"/>
                             <constraint firstItem="hHy-f7-xQM" firstAttribute="trailing" secondItem="K0C-qS-G79" secondAttribute="trailing" id="zlm-Rs-wjl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hHy-f7-xQM"/>
                     </view>
                     <connections>
+                        <outlet property="coverImageView" destination="5aR-sG-GwT" id="zMz-cA-jbS"/>
                         <outlet property="lastBtn" destination="tnL-zb-cDd" id="18p-5T-7xk"/>
                         <outlet property="listBtn" destination="vQg-2n-ghA" id="PSR-NQ-bNh"/>
                         <outlet property="nextBtn" destination="QeH-eb-fnO" id="rug-cJ-rfa"/>
