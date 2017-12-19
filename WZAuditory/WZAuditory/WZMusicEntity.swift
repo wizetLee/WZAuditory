@@ -214,32 +214,7 @@ final class WZMusicHub: NSObject {
         }
     }
     
-    ///配置远程控制显示的信息
-    func configRemoteCommandCenter() -> Void {
-        let remoteCommandCenter = MPRemoteCommandCenter.shared()
-        
-        //播放事件
-        let playCommand = remoteCommandCenter.playCommand
-        playCommand.isEnabled = true
-        playCommand.addTarget(self, action: #selector(playItem(_ : )))
-        
-        //暂停事件
-        let pauseCommand = remoteCommandCenter.pauseCommand
-        pauseCommand.isEnabled = true
-        pauseCommand.addTarget(self, action: #selector(pauseItem(_ : )))
-        
-        //下一曲
-        let nextCommand = remoteCommandCenter.nextTrackCommand
-        nextCommand.isEnabled = true
-        nextCommand.addTarget(self, action: #selector(nextItem(_ : )))
-        //上一曲
-        let previousCommand = remoteCommandCenter.previousTrackCommand
-        previousCommand.isEnabled = true
-        previousCommand.addTarget(self, action: #selector(previousItem(_ : )))
-        
-        //调节播放位置 seektime
-        
-    }
+    
     
     @objc func playItem(_ command : MPRemoteCommand) -> Void {
         DispatchQueue.main.async {
@@ -263,42 +238,7 @@ final class WZMusicHub: NSObject {
     }
     
     
-    ///配置多媒体控制面板的显示页面
-    func mediaItemArtwork() -> Void {
-        DispatchQueue.main.async {
-            let entity = self.currentEntity
-            if entity != nil {
-                ///设置后台播放时显示的东西，例如歌曲名字，图片等
-                let image = UIImage(named: entity!.clear!)
-                if image != nil {
-                    var info : [String : Any] = Dictionary()
-                    ///标题
-                    info[MPMediaItemPropertyTitle] = entity!.bundlePath!.lastPathComponent
-                    ///作者
-                    info[MPMediaItemPropertyArtist] = "wizet"
-                    ///封面
-                    let artWork = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: { (size) -> UIImage in return image! })
-                    info[MPMediaItemPropertyArtwork] = artWork
-                    if self.itemDuration != nil {
-                        //当前播放进度 会被自动计算出来 暂停时使用到
-                        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: CMTimeGetSeconds(self.player!.currentTime()))
-                        
-                        //调整外部显示的播放速率正常为1、一般都是根据内部播放器的播放速率作同步，一般不必修改
-    //                        info[MPNowPlayingInfoPropertyPlaybackRate] = NSNumber(value: 1)
-                        
-                        //播放总时间
-                        let duration = CMTimeGetSeconds(self.itemDuration!)
-                        info[MPMediaItemPropertyPlaybackDuration] = NSNumber(value: duration)
-                        }
-                 
-                    MPNowPlayingInfoCenter.default().nowPlayingInfo = info
-                    
-                    //用于调整界面的事件
-                     MPRemoteCommandCenter.shared()
-                }
-            }
-        }
-    }
+    
     
     ///暂停
     func pause() {
@@ -323,6 +263,184 @@ final class WZMusicHub: NSObject {
     @objc func backMode(sender : WZMusicHub) -> Void {
         self.recoverAudioBackMode()
         print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+    }
+    
+    //MARK: - 媒体信息配置
+    ///配置多媒体控制面板的显示页面
+    func mediaItemArtwork() -> Void {
+        DispatchQueue.main.async {
+            let entity = self.currentEntity
+            if entity != nil {
+                ///设置后台播放时显示的东西，例如歌曲名字，图片等
+                let image = UIImage(named: entity!.clear!)
+                if image != nil {
+                    var info : [String : Any] = Dictionary()
+                    ///标题
+                    info[MPMediaItemPropertyTitle] = entity!.bundlePath!.lastPathComponent
+                    ///作者
+                    info[MPMediaItemPropertyArtist] = "wizet"
+                    ///封面
+                    let artWork = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: { (size) -> UIImage in return image! })
+                    info[MPMediaItemPropertyArtwork] = artWork
+                    if self.itemDuration != nil {
+                        //当前播放进度 会被自动计算出来 暂停时使用到
+                        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: CMTimeGetSeconds(self.player!.currentTime()))
+                        
+                        //调整外部显示的播放速率正常为1、一般都是根据内部播放器的播放速率作同步，一般不必修改
+                        //                        info[MPNowPlayingInfoPropertyPlaybackRate] = NSNumber(value: 1)
+                        
+                        //播放总时间
+                        let duration = CMTimeGetSeconds(self.itemDuration!)
+                        info[MPMediaItemPropertyPlaybackDuration] = NSNumber(value: duration)
+                    }
+                    
+                    MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+                    
+                }
+            }
+        }
+    }
+    //MARK: - 远程控制配置
+    ///配置远程控制显示的信息
+    func configRemoteCommandCenter() -> Void {
+        let remoteCommandCenter = MPRemoteCommandCenter.shared()
+        
+        //播放事件
+        let playCommand = remoteCommandCenter.playCommand
+        playCommand.isEnabled = true
+        playCommand.addTarget(self, action: #selector(playItem(_ : )))
+        
+        //暂停事件
+        let pauseCommand = remoteCommandCenter.pauseCommand
+        pauseCommand.isEnabled = true
+        pauseCommand.addTarget(self, action: #selector(pauseItem(_ : )))
+        
+        //下一曲
+        let nextTrackCommand = remoteCommandCenter.nextTrackCommand
+        nextTrackCommand.isEnabled = true
+        nextTrackCommand.addTarget(self, action: #selector(nextItem(_ : )))
+        //上一曲
+        let previousTrackCommand = remoteCommandCenter.previousTrackCommand
+        previousTrackCommand.isEnabled = true
+        previousTrackCommand.addTarget(self, action: #selector(previousItem(_ : )))
+        
+        //
+        //        //耳机
+        //        let togglePlayPauseCommand = remoteCommandCenter.togglePlayPauseCommand
+        //        togglePlayPauseCommand.isEnabled = true
+        //        togglePlayPauseCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //            //处理
+        //            return MPRemoteCommandHandlerStatus.success
+        //        }
+        
+        //        //快进 快退
+        //        let intervals : Int = 10
+        //        let skipForwardCommand = remoteCommandCenter.skipForwardCommand
+        //        skipForwardCommand.isEnabled = true
+        //        skipForwardCommand.preferredIntervals = [NSNumber(value : intervals)]//显示在系统层面的数据
+        //        skipForwardCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //            //根据自定义的数字进行seekTime达到快进快退效果
+        //            return MPRemoteCommandHandlerStatus.success
+        //        }
+        //        let skipBackwardCommand = remoteCommandCenter.skipBackwardCommand
+        //        skipBackwardCommand.isEnabled = true
+        //        skipBackwardCommand.preferredIntervals = [NSNumber(value : intervals)]
+        //        skipBackwardCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //
+        //            return MPRemoteCommandHandlerStatus.success
+        //        }
+        
+        //        //更改播放速率
+        //        let changePlaybackRateCommand = remoteCommandCenter.changePlaybackRateCommand
+        //        changePlaybackRateCommand.isEnabled = true
+        //        changePlaybackRateCommand.supportedPlaybackRates = [NSNumber(value : 2)]
+        //        changePlaybackRateCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //            print(#function)
+        //            return MPRemoteCommandHandlerStatus.success
+        //        }
+        //
+        //        //重复模式
+        //        let changeRepeatModeCommand = remoteCommandCenter.changeRepeatModeCommand
+        //        changeRepeatModeCommand.isEnabled = true
+        //        changeRepeatModeCommand.currentRepeatType = MPRepeatType.all
+        //        changeRepeatModeCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //            print(#function)
+        //            return MPRemoteCommandHandlerStatus.success
+        //        }
+        ////        //耳机开关？
+        //        let changeShuffleModeCommand = remoteCommandCenter.changeShuffleModeCommand
+        //        changeShuffleModeCommand.isEnabled = true
+        //        changeShuffleModeCommand.currentShuffleType = MPShuffleType.collections
+        //        changeShuffleModeCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //             print(#function)
+        //
+        //
+        //            return MPRemoteCommandHandlerStatus.success
+        //        }
+        //
+        ////        //评分
+        //        let ratingCommand = remoteCommandCenter.ratingCommand
+        //        ratingCommand.isEnabled = true
+        //        ratingCommand.maximumRating = 0.0
+        //        ratingCommand.maximumRating = 10.0
+        //        ratingCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //             print(#function)
+        //            return MPRemoteCommandHandlerStatus.success
+        //        }
+        
+        //反馈信息
+        //            let likeCommand = remoteCommandCenter.likeCommand
+        //            likeCommand.isEnabled = true
+        //            likeCommand.isActive = true
+        //            likeCommand.localizedTitle = "零零落落"
+        //            likeCommand.localizedShortTitle = "温柔"
+        //            likeCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //
+        //                return MPRemoteCommandHandlerStatus.success
+        //            }
+        //
+        //            let dislikeCommand = remoteCommandCenter.dislikeCommand
+        //            dislikeCommand.isEnabled = true
+        //            dislikeCommand.isActive = true
+        //            dislikeCommand.localizedTitle = "dislikeCommand"
+        //            dislikeCommand.localizedShortTitle = "哈哈"
+        //            dislikeCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //                return MPRemoteCommandHandlerStatus.success
+        //            }
+        //
+        //            let bookmarkCommand = remoteCommandCenter.bookmarkCommand
+        //            bookmarkCommand.isEnabled = true
+        //            bookmarkCommand.isActive = true
+        //            bookmarkCommand.localizedTitle = "bookmarkCommand"
+        //            bookmarkCommand.localizedShortTitle = "吼猴"
+        //            bookmarkCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //                return MPRemoteCommandHandlerStatus.success
+        //            }
+        
+        //更改播放点位置
+        let changePlaybackPositionCommand = remoteCommandCenter.changePlaybackPositionCommand
+        changePlaybackPositionCommand.isEnabled = true
+        changePlaybackPositionCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+            //如何精确拖动的位置？
+            let event = commandEvent as! MPChangePlaybackPositionCommandEvent
+            
+            if self.player != nil {
+                //需要使用带回调的SeekTime 回调重新设置进度 否则播放进度条会停止
+                self.player?.seek(to: CMTimeMakeWithSeconds(event.positionTime, 600), completionHandler: { (finish) in
+                    //Q：拖动介绍后进度条不动了
+                    //重新修改进度条
+                    var dic = MPNowPlayingInfoCenter.default().nowPlayingInfo
+                    dic?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: CMTimeGetSeconds(self.player!.currentTime()))
+                    MPNowPlayingInfoCenter.default().nowPlayingInfo = dic
+                })
+                
+                return MPRemoteCommandHandlerStatus.success
+            } else {
+                //更新位置
+                return MPRemoteCommandHandlerStatus.commandFailed
+            }
+        }
+        
     }
     
     //MARK: - 对于其他APP也有音频视频相关的一个比较好的处理方式

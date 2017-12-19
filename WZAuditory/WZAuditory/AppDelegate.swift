@@ -40,8 +40,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        }
     }
     
-    
-    
     //远程控制
 //    override func remoteControlReceived(with event: UIEvent?) {
 //        if event != nil {
