@@ -48,8 +48,6 @@ class WZEnsembleVolumeAlert: WZBaseAlert {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
-        UIApplication.shared.endReceivingRemoteControlEvents()
-//        AVAudioSession.sharedInstance().otherAudioPlaying
     }
     
     

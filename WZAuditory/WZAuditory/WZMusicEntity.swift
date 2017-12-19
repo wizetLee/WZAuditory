@@ -17,6 +17,9 @@ enum WZMusicPlayMode  {
     case loop
 }
 
+
+
+/// 播放监听者的协议
 protocol WZMusicHubProtocol : class {
     
     func play(currentIndex : IndexPath);
@@ -33,7 +36,7 @@ protocol WZMusicHubProtocol : class {
 //}
 
 
-//单例模式 所有音乐的目录缓存器
+//MARK: - 单例模式 所有音乐的目录缓存器
 final class WZMusicHub: NSObject {
 
     static let share = WZMusicHub()
@@ -42,10 +45,11 @@ final class WZMusicHub: NSObject {
         NotificationCenter.default.addObserver(self, selector: #selector(audioItemDidPlayToEndTime(notification :)), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: nil)
         self.audioConfigNotification()
         UIApplication.shared.beginReceivingRemoteControlEvents()
+          self.configRemoteCommandCenter()
     }//外部不可访问
     
     deinit {
-       UIApplication.shared.endReceivingRemoteControlEvents()
+     
         NotificationCenter.default.removeObserver(self)
     }
     ///播放体数组
@@ -60,6 +64,7 @@ final class WZMusicHub: NSObject {
     var observersList: Array<WZMusicHubProtocol> = Array<WZMusicHubProtocol>()
     //音乐播放器
     var player : AVPlayer?
+    var itemDuration : CMTime?
     //判断是否正在播放
     var isPlaying = false
     //进度监听
@@ -76,10 +81,11 @@ final class WZMusicHub: NSObject {
         }
     }
     
+    ///监听者
     func appendObserver(element : WZMusicHubProtocol) -> Void {
         self.observersList.append(element)
     }
-    
+    ///移除某一个监听者
     func removeObserver(element : WZMusicHubProtocol) -> Void {
         var index : Int = -1;
         for (tmpIndex , value) in self.observersList.enumerated() {
@@ -151,8 +157,10 @@ final class WZMusicHub: NSObject {
     
     ///播放
     func play() {
-     
+        self.classForCoder.cancelPreviousPerformRequests(withTarget: self)//去掉变换mode
+        
         if entityList.count <= 0 {
+            return;
             assert(false, "没数据")
         }
         
@@ -161,78 +169,160 @@ final class WZMusicHub: NSObject {
             currentPlayingIndex = IndexPath(row: 0, section: 0)
         }
         
-        if progressObserve != nil
-            && nextSong == true {
-            player?.removeTimeObserver(progressObserve!)
-            player = nil;
+        if player == nil {
+            player = AVPlayer()
+            progressObserve = player?.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(0.5, 600) , queue: DispatchQueue.main, using: { (cmtime) in
+                //处理时间回调
+                print("时间:\(CMTimeGetSeconds(cmtime))")
+                //                let info = MPNowPlayingInfoCenter.default().nowPlayingInfo
+                //                info[MPNowPlayingInfoPropertyPlaybackRate] =
+            })
         }
         
-        if player == nil {
-            //重新初始化AVPlayer
+        if nextSong == true {
+            //上一首 下一首（更换item）
             let tmpIndexPath = currentPlayingIndex!
             let itmeURL : URL =  entityList[tmpIndexPath.row].bundlePath!
             let playerItem = AVPlayerItem(url: itmeURL)
-            player = AVPlayer(playerItem: playerItem)
+//            print(playerItem.duration)//获取失败
+//            print(AVAsset(url: itmeURL).duration)//获取成功
+            itemDuration = AVAsset(url: itmeURL).duration
+            player?.replaceCurrentItem(with: playerItem);
+        } else {
+            //暂停 播放
         }
         
         if player != nil {
-           
-            player?.play()
-            self.configAudioBackMode()
+            
             isPlaying = true
             nextSong = false
-            progressObserve = player?.addPeriodicTimeObserver(forInterval: CMTimeMakeWithSeconds(0.5, 600) , queue: DispatchQueue.main, using: { (cmtime) in
-                //处理时间回调
-            })
-           
-            let entity = self.currentEntity
-            if entity != nil {
-                //    设置后台播放时显示的东西，例如歌曲名字，图片等
-                let image = UIImage(named: entity!.clear!)
-                if image != nil {
-                    let artWork = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: { (size) -> UIImage in
-                        return image!
-                    })
-                    MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle : entity!.bundlePath!
-                        , MPMediaItemPropertyArtist : "wizet"
-                        , MPMediaItemPropertyArtwork : artWork]
-                }
-               
-            }
-     
             
+//            有影响播放的嫌疑
+            if self.currentPlayingIndex != nil {
+                for tmp in observersList {
+                    tmp.play(currentIndex: self.currentPlayingIndex!)
+                }
+            }
+            
+            self.mediaItemArtwork()
+          
+            player!.play()
+            self.configAudioBackMode()
         } else {
             assert(false, "状态错误")
             return
         }
     }
     
-    ///暂停
-    func pause() {
-        player?.pause()
-        isPlaying = false
-        if self.currentPlayingIndex != nil {
-            for tmp in observersList {
-                tmp.pause(currentIndex: self.currentPlayingIndex!)
-            }
-        }
-        self.recoverAudioBackMode()
+    ///配置远程控制显示的信息
+    func configRemoteCommandCenter() -> Void {
+        let remoteCommandCenter = MPRemoteCommandCenter.shared()
+        
+        //播放事件
+        let playCommand = remoteCommandCenter.playCommand
+        playCommand.isEnabled = true
+        playCommand.addTarget(self, action: #selector(playItem(_ : )))
+        
+        //暂停事件
+        let pauseCommand = remoteCommandCenter.pauseCommand
+        pauseCommand.isEnabled = true
+        pauseCommand.addTarget(self, action: #selector(pauseItem(_ : )))
+        
+        //下一曲
+        let nextCommand = remoteCommandCenter.nextTrackCommand
+        nextCommand.isEnabled = true
+        nextCommand.addTarget(self, action: #selector(nextItem(_ : )))
+        //上一曲
+        let previousCommand = remoteCommandCenter.previousTrackCommand
+        previousCommand.isEnabled = true
+        previousCommand.addTarget(self, action: #selector(previousItem(_ : )))
+        
+        //调节播放位置 seektime
+        
     }
     
-    //MARK: - 远程控制
-    func remoteControlReceivedWithEvent(event : UIEvent) -> Void {
-        if event.subtype == UIEventSubtype.remoteControlPlay {
-            WZMusicHub.share.play()
-        } else if event.subtype == UIEventSubtype.remoteControlPause {
-            WZMusicHub.share.pause()
-        } else if event.subtype == UIEventSubtype.remoteControlNextTrack {
-            WZMusicHub.share.next()
-        } else if event.subtype == UIEventSubtype.remoteControlPreviousTrack {
-            WZMusicHub.share.last()
-        } else if event.subtype == UIEventSubtype.remoteControlTogglePlayPause {
-            //耳机的播放暂停
-            print("未知类型")
+    @objc func playItem(_ command : MPRemoteCommand) -> Void {
+        DispatchQueue.main.async {
+           self.play()
         }
+    }
+    @objc func pauseItem(_ command : MPRemoteCommand) -> Void {
+        DispatchQueue.main.async {
+            self.pause()
+        }
+    }
+    @objc func previousItem(_ command : MPRemoteCommand) -> Void {
+        DispatchQueue.main.async {
+           self.last()
+        }
+    }
+    @objc func nextItem(_ command : MPRemoteCommand) -> Void {
+        DispatchQueue.main.async {
+            self.next()
+        }
+    }
+    
+    
+    ///配置多媒体控制面板的显示页面
+    func mediaItemArtwork() -> Void {
+        DispatchQueue.main.async {
+            let entity = self.currentEntity
+            if entity != nil {
+                ///设置后台播放时显示的东西，例如歌曲名字，图片等
+                let image = UIImage(named: entity!.clear!)
+                if image != nil {
+                    var info : [String : Any] = Dictionary()
+                    ///标题
+                    info[MPMediaItemPropertyTitle] = entity!.bundlePath!.lastPathComponent
+                    ///作者
+                    info[MPMediaItemPropertyArtist] = "wizet"
+                    ///封面
+                    let artWork = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: { (size) -> UIImage in return image! })
+                    info[MPMediaItemPropertyArtwork] = artWork
+                    if self.itemDuration != nil {
+                        //当前播放进度 会被自动计算出来 暂停时使用到
+                        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: CMTimeGetSeconds(self.player!.currentTime()))
+                        
+                        //调整外部显示的播放速率正常为1、一般都是根据内部播放器的播放速率作同步，一般不必修改
+    //                        info[MPNowPlayingInfoPropertyPlaybackRate] = NSNumber(value: 1)
+                        
+                        //播放总时间
+                        let duration = CMTimeGetSeconds(self.itemDuration!)
+                        info[MPMediaItemPropertyPlaybackDuration] = NSNumber(value: duration)
+                        }
+                 
+                    MPNowPlayingInfoCenter.default().nowPlayingInfo = info
+                    
+                    //用于调整界面的事件
+                     MPRemoteCommandCenter.shared()
+                }
+            }
+        }
+    }
+    
+    ///暂停
+    func pause() {
+        DispatchQueue.main.async {
+           
+            self.isPlaying = false
+            if self.currentPlayingIndex != nil {
+                for tmp in self.observersList {
+                    tmp.pause(currentIndex: self.currentPlayingIndex!)
+                }
+            }
+            self.player?.pause()
+         
+//            self.recoverAudioBackMode()
+        }
+        
+//        self.classForCoder.cancelPreviousPerformRequests(withTarget: self)
+//        self.perform(#selector(backMode(sender :)), with: self, afterDelay: 5);
+       
+    }
+    
+    @objc func backMode(sender : WZMusicHub) -> Void {
+        self.recoverAudioBackMode()
+        print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     }
     
     //MARK: - 对于其他APP也有音频视频相关的一个比较好的处理方式
@@ -240,7 +330,7 @@ final class WZMusicHub: NSObject {
     func recoverAudioBackMode() {
         let audioSession = AVAudioSession.sharedInstance()
         if audioSession.category == AVAudioSessionCategorySoloAmbient {
-            
+
         } else {
             try? audioSession.setActive(false, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
             try? audioSession.setCategory(AVAudioSessionCategorySoloAmbient, with: AVAudioSessionCategoryOptions())//默认模式
@@ -253,8 +343,8 @@ final class WZMusicHub: NSObject {
         let audioSession = AVAudioSession.sharedInstance()
         if audioSession.category == AVAudioSessionCategoryPlayback {
         } else {
-            try? audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions())//取消混合和duck模式
             try? audioSession.setActive(true, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
+            try? audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions())//取消混合和duck模式
         }
     }
     
@@ -267,34 +357,49 @@ final class WZMusicHub: NSObject {
     
     @objc func audioSessionInterruption(sender : Notification) {
         DispatchQueue.main.async {
+            self.classForCoder.cancelPreviousPerformRequests(withTarget: self)//去掉变换mode
+            
             let interruptionType = sender.userInfo?[AVAudioSessionInterruptionTypeKey] as! UInt
             if interruptionType == AVAudioSessionInterruptionType.began.rawValue {
                 print("开始中断")
                 //中断播放
-                self.pause()
-                //处理UI 恢复状态
                 
+                self.pause()
+                let audioSession = AVAudioSession.sharedInstance()
+                try? audioSession.setActive(false, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
+                try? audioSession.setCategory(AVAudioSessionCategorySoloAmbient, with: AVAudioSessionCategoryOptions())//默认模式
+               
+                //处理UI 恢复状态
+                self.classForCoder.cancelPreviousPerformRequests(withTarget: self)//去掉变换mode
             } else if interruptionType == AVAudioSessionInterruptionType.ended.rawValue {
                 print("结束中断")
+               
                 let interruptOption = sender.userInfo?[AVAudioSessionInterruptionOptionKey] as! UInt
                 if interruptOption == AVAudioSessionInterruptionOptions.shouldResume.rawValue {
-                    
-                    //Step 1 设置为混合加duck模式
-                    let audioSession = AVAudioSession.sharedInstance()
-                    try? audioSession.setActive(true, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
-                    try? audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions(rawValue: AVAudioSessionCategoryOptions.RawValue(UInt8(AVAudioSessionCategoryOptions.mixWithOthers.rawValue)|UInt8(AVAudioSessionCategoryOptions.duckOthers.rawValue))))
-                    //Step 2 播放音频
-                    self.play()
-                    //第三部 恢复播放
-                    try? audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions())//取消混合和duck模式
-                    try? audioSession.setActive(true, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
+                        let lock = NSLock()
+                        lock.try()
+                        //Step 1 设置为混合加duck模式
+                        let audioSession = AVAudioSession.sharedInstance()
+                        try? audioSession.setActive(true, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
+                        try? audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions(rawValue: AVAudioSessionCategoryOptions.RawValue(UInt8(AVAudioSessionCategoryOptions.mixWithOthers.rawValue)|UInt8(AVAudioSessionCategoryOptions.duckOthers.rawValue))))
+                        
+                        print(audioSession.categoryOptions)
+                        while self.player!.timeControlStatus != .playing {
+                            self.play()
+                            print("死循环形式播放")
+                        }
+                        
+                        try? audioSession.setActive(true, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
+                        try? audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions())
+                        print(audioSession.categoryOptions)
+                        //Step 2 播放音频
+                        lock.unlock()
+                    }
                     
                 } else {
                     //恢复状态
                     print("can not resume")
                 }
-                
-            }
         }
     }
     
@@ -310,7 +415,6 @@ final class WZMusicHub: NSObject {
             case AVAudioSessionRouteChangeReason.oldDeviceUnavailable.hashValue:
                 print("AVAudioSessionRouteChangeReason.oldDeviceUnavailable")
                 self.pause()//插入耳机 恢复播放
-        
             default :
                 print("未知， 未知")
             }
@@ -319,6 +423,9 @@ final class WZMusicHub: NSObject {
     
 }
 
+
+
+//MARK: - 播放数据实体
 class WZMusicEntity {
     var clear : String?
     var thunbmail : String?

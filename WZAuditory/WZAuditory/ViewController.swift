@@ -15,14 +15,19 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
     
     var table : UITableView?
     var list : [Dictionary<String, AnyClass>]?
-  
+    
     override func viewDidLoad() {
+       
         super.viewDidLoad()
         
         self.list = [["title": WZEnsembleController.classForCoder()]
                     , ["title": WZMusicRecycleController.classForCoder()]
                     ]
         self.creatViews()
+    }
+    
+    deinit {
+       
     }
     
     func creatViews() -> Void {
@@ -53,7 +58,6 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
         }
     }
     
-  
     
     
     //MARK: - delegate

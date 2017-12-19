@@ -24,11 +24,11 @@ class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableVi
     }
     
     func next(nextIndex: IndexPath, currentIndex: IndexPath) {
-        table?.reloadData()
+//        table?.reloadData()
     }
     
     func last(lastIndex: IndexPath, currentIndex: IndexPath) {
-        table?.reloadData()
+//        table?.reloadData()
     }
     
    

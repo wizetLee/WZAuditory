@@ -20,11 +20,11 @@ class WZMusicHubController: UIViewController, WZMusicHubProtocol {
     }
     
     func next(nextIndex: IndexPath, currentIndex: IndexPath) {
-        self.updateView()
+//        self.updateView()
     }
     
     func last(lastIndex: IndexPath, currentIndex: IndexPath) {
-        self.updateView()
+//        self.updateView()
     }
     
     func desc() -> String {
@@ -92,6 +92,9 @@ class WZMusicHubController: UIViewController, WZMusicHubProtocol {
         self.navigationController?.popViewController(animated: true)
         
     }
+    
+    
+    
     @IBAction func playModePick(_ sender: UIButton) {
     }
     
@@ -107,7 +110,6 @@ class WZMusicHubController: UIViewController, WZMusicHubProtocol {
         } else {
             WZMusicHub.share.play()
         }
-        self.updateView()
     }
     
     func updateView() -> Void {
