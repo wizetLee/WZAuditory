@@ -584,6 +584,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		405BCA3F1FEAADDC0024274F /* WZMusicList(列表) */ = {
+			isa = PBXGroup;
+			children = (
+				8471D4D41FDE451200A9CF87 /* WZMusicHubController.swift */,
+				400875011FDD2C8400A8662B /* WZMusicRecycleController.swift */,
+				8471D4D61FDE541A00A9CF87 /* WZMusicEntity.swift */,
+				40FF520A1FDD782500A80B89 /* WZMusicRecycleCell.swift */,
+				8467070E1FDF6B310094B65F /* WZMusicResource */,
+			);
+			path = "WZMusicList(列表)";
+			sourceTree = "<group>";
+		};
 		40FF50AB1FDD722D00A80B89 /* relaxImages */ = {
 			isa = PBXGroup;
 			children = (
@@ -729,6 +741,7 @@
 		846227681FD6B68000D37FAE = {
 			isa = PBXGroup;
 			children = (
+				405BCA3F1FEAADDC0024274F /* WZMusicList(列表) */,
 				847985341FDA1BFF002102DD /* WZEnsemble(多音频播放) */,
 				847985311FDA1A1B002102DD /* WZComponentLibrary */,
 				846227A21FD6B7A000D37FAE /* MediaResource */,
@@ -754,13 +767,8 @@
 		846227731FD6B68000D37FAE /* WZAuditory */ = {
 			isa = PBXGroup;
 			children = (
-				8467070E1FDF6B310094B65F /* WZMusicResource */,
 				846227741FD6B68000D37FAE /* AppDelegate.swift */,
 				846227761FD6B68000D37FAE /* ViewController.swift */,
-				8471D4D41FDE451200A9CF87 /* WZMusicHubController.swift */,
-				400875011FDD2C8400A8662B /* WZMusicRecycleController.swift */,
-				8471D4D61FDE541A00A9CF87 /* WZMusicEntity.swift */,
-				40FF520A1FDD782500A80B89 /* WZMusicRecycleCell.swift */,
 				840E3E971FE3A28F00A5D559 /* WZAudioFileStreamController.swift */,
 				840F2D001FDFEA14000E59D6 /* WZAudioFileStreamController.xib */,
 				40FF520B1FDD782500A80B89 /* WZMusicRecycleCell.xib */,

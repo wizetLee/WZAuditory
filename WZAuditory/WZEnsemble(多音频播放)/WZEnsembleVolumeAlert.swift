@@ -48,11 +48,11 @@ class WZEnsembleVolumeAlert: WZBaseAlert {
     
     deinit {
         NotificationCenter.default.removeObserver(self)
+        UIApplication.shared.endReceivingRemoteControlEvents()
     }
     
     
     //MARK: - 监听系统声音
-    
     ///监听代理
     func observeVolume() {
         NotificationCenter.default.addObserver(self, selector: #selector(systemVolumeDidChangeNotification(sender:)), name: NSNotification.Name(rawValue: "AVSystemController_SystemVolumeDidChangeNotification"), object: nil)

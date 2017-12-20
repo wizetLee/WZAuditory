@@ -31,8 +31,6 @@ class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableVi
 //        table?.reloadData()
     }
     
-   
-
     var table : UITableView?
   
     override func viewDidLoad() {
@@ -54,7 +52,7 @@ class WZMusicRecycleController: UIViewController, UITableViewDelegate, UITableVi
     
     deinit {
         ///打印log
-        print(self.desc() + " : " + #function)
+        print(self.description + " : " + #function)
     }
     
     

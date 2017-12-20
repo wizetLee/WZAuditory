@@ -22,14 +22,17 @@ class WZAudioControlBar: UIView {
         
     }
 
+    ///在播的全部清除
     @IBAction func clearAction(_ sender: UIButton) {
         self.clearActionClosure?()
     }
     
+    ///显示音量控制
     @IBAction func showVolumnControlAction(_ sender: UIButton) {
         self.showVolumnControlActionClosure?()
     }
     
+    ///暂停 播放
     @IBAction func playPauseAction(_ sender: UIButton) {
         self.playPauseActionClosure?()
     }

@@ -17,8 +17,6 @@ enum WZMusicPlayMode  {
     case loop
 }
 
-
-
 /// 播放监听者的协议
 protocol WZMusicHubProtocol : class {
     
@@ -237,9 +235,6 @@ final class WZMusicHub: NSObject {
         }
     }
     
-    
-    
-    
     ///暂停
     func pause() {
         DispatchQueue.main.async {
@@ -251,18 +246,12 @@ final class WZMusicHub: NSObject {
                 }
             }
             self.player?.pause()
-         
-//            self.recoverAudioBackMode()
         }
-        
-//        self.classForCoder.cancelPreviousPerformRequests(withTarget: self)
-//        self.perform(#selector(backMode(sender :)), with: self, afterDelay: 5);
-       
     }
     
+    ///恢复默认的模式
     @objc func backMode(sender : WZMusicHub) -> Void {
         self.recoverAudioBackMode()
-        print("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
     }
     
     //MARK: - 媒体信息配置
@@ -270,8 +259,14 @@ final class WZMusicHub: NSObject {
     func mediaItemArtwork() -> Void {
         DispatchQueue.main.async {
             let entity = self.currentEntity
+            
             if entity != nil {
-                ///设置后台播放时显示的东西，例如歌曲名字，图片等
+                //根据数据配置控制项
+                let remoteCommandCenter = MPRemoteCommandCenter.shared()
+                remoteCommandCenter.likeCommand.isActive = self.currentEntity!.like
+                remoteCommandCenter.likeCommand.localizedTitle = (remoteCommandCenter.likeCommand.isActive == true) ? "不喜欢" : "喜欢"
+
+                //设置后台播放时显示的东西，例如歌曲名字，图片等
                 let image = UIImage(named: entity!.clear!)
                 if image != nil {
                     var info : [String : Any] = Dictionary()
@@ -279,15 +274,17 @@ final class WZMusicHub: NSObject {
                     info[MPMediaItemPropertyTitle] = entity!.bundlePath!.lastPathComponent
                     ///作者
                     info[MPMediaItemPropertyArtist] = "wizet"
+                    //相簿标题
+                    info[MPMediaItemPropertyAlbumTitle] = "相册标题"
                     ///封面
                     let artWork = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: { (size) -> UIImage in return image! })
                     info[MPMediaItemPropertyArtwork] = artWork
+                    
                     if self.itemDuration != nil {
-                        //当前播放进度 会被自动计算出来 暂停时使用到
+                        //当前播放进度 （会被自动计算出来，自动计算与MPNowPlayingInfoPropertyPlaybackRate设置的速率正相关)
                         info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: CMTimeGetSeconds(self.player!.currentTime()))
-                        
                         //调整外部显示的播放速率正常为1、一般都是根据内部播放器的播放速率作同步，一般不必修改
-                        //                        info[MPNowPlayingInfoPropertyPlaybackRate] = NSNumber(value: 1)
+                        //  info[MPNowPlayingInfoPropertyPlaybackRate] = NSNumber(value: 1)
                         
                         //播放总时间
                         let duration = CMTimeGetSeconds(self.itemDuration!)
@@ -295,11 +292,11 @@ final class WZMusicHub: NSObject {
                     }
                     
                     MPNowPlayingInfoCenter.default().nowPlayingInfo = info
-                    
                 }
             }
         }
     }
+    
     //MARK: - 远程控制配置
     ///配置远程控制显示的信息
     func configRemoteCommandCenter() -> Void {
@@ -319,13 +316,73 @@ final class WZMusicHub: NSObject {
         let nextTrackCommand = remoteCommandCenter.nextTrackCommand
         nextTrackCommand.isEnabled = true
         nextTrackCommand.addTarget(self, action: #selector(nextItem(_ : )))
-        //上一曲
-        let previousTrackCommand = remoteCommandCenter.previousTrackCommand
-        previousTrackCommand.isEnabled = true
-        previousTrackCommand.addTarget(self, action: #selector(previousItem(_ : )))
+        
+        //喜欢
+        let likeCommand = remoteCommandCenter.likeCommand
+        likeCommand.isEnabled = true
+        likeCommand.isActive = true//显示钩
+        likeCommand.localizedTitle = "不喜欢"
+        likeCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+            let event =  commandEvent as! MPFeedbackCommandEvent
+            if event.isNegative == false {
+                likeCommand.isActive = true
+            } else {
+                likeCommand.isActive = false
+            }
+            
+            likeCommand.localizedTitle = (likeCommand.isActive == true) ? "不喜欢" : "喜欢"
+            return MPRemoteCommandHandlerStatus.success
+        }
+
+        //不喜欢
+        let dislikeCommand = remoteCommandCenter.dislikeCommand
+        dislikeCommand.isEnabled = true
+//          dislikeCommand.isActive = true
+        dislikeCommand.localizedTitle = "上一首"
+//          dislikeCommand.localizedShortTitle = "上一首啊" (位置不明... MPFeekbackCommand.localizedShortTitle)
+        dislikeCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+            self.last()
+            return MPRemoteCommandHandlerStatus.success
+        }
+
+        //拖动播放位置
+        let changePlaybackPositionCommand = remoteCommandCenter.changePlaybackPositionCommand
+        changePlaybackPositionCommand.isEnabled = true
+        changePlaybackPositionCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+            //如何精确拖动的位置？
+            let event = commandEvent as! MPChangePlaybackPositionCommandEvent
+            
+            if self.player != nil {
+                //需要使用带回调的SeekTime 回调重新设置进度 否则播放进度条会停止
+                self.player?.seek(to: CMTimeMakeWithSeconds(event.positionTime, 600), completionHandler: { (finish) in
+                    //Q:拖动介绍后进度条不动了
+                        //A:恢复时重新配置MPNowPlayingInfoPropertyElapsedPlaybackTime
+                    var dic = MPNowPlayingInfoCenter.default().nowPlayingInfo
+                    dic?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: CMTimeGetSeconds(self.player!.currentTime()))
+                    MPNowPlayingInfoCenter.default().nowPlayingInfo = dic
+                })
+                return MPRemoteCommandHandlerStatus.success
+            } else {
+                return MPRemoteCommandHandlerStatus.commandFailed
+            }
+        }
+        
+       
+        //                    let bookmarkCommand = remoteCommandCenter.bookmarkCommand
+        //                    bookmarkCommand.isEnabled = true
+        //                    bookmarkCommand.isActive = true
+        //                    bookmarkCommand.localizedTitle = "bookmark"
+        //                    bookmarkCommand.localizedShortTitle = "bookmark啊"
+        //                    bookmarkCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //                        return MPRemoteCommandHandlerStatus.success
+        //                    }
+        
+        //        //上一曲
+        //        let previousTrackCommand = remoteCommandCenter.previousTrackCommand
+        //        previousTrackCommand.isEnabled = true
+        //        previousTrackCommand.addTarget(self, action: #selector(previousItem(_ : )))
         
         //
-        //        //耳机
         //        let togglePlayPauseCommand = remoteCommandCenter.togglePlayPauseCommand
         //        togglePlayPauseCommand.isEnabled = true
         //        togglePlayPauseCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
@@ -333,15 +390,17 @@ final class WZMusicHub: NSObject {
         //            return MPRemoteCommandHandlerStatus.success
         //        }
         
-        //        //快进 快退
-        //        let intervals : Int = 10
-        //        let skipForwardCommand = remoteCommandCenter.skipForwardCommand
-        //        skipForwardCommand.isEnabled = true
-        //        skipForwardCommand.preferredIntervals = [NSNumber(value : intervals)]//显示在系统层面的数据
-        //        skipForwardCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
-        //            //根据自定义的数字进行seekTime达到快进快退效果
-        //            return MPRemoteCommandHandlerStatus.success
-        //        }
+        //                //快进 快退
+        //                let intervals : Int = 10
+        //                let skipForwardCommand = remoteCommandCenter.skipForwardCommand
+        //                skipForwardCommand.isEnabled = true
+        //                skipForwardCommand.preferredIntervals = [NSNumber(value : intervals)]//显示在系统层面的数据
+        //                skipForwardCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
+        //                    let event = commandEvent as! MPSkipIntervalCommand
+        //                    let list : [Number] = event.preferredIntervals
+        //                    //根据自定义的数字进行seekTime达到快进快退效果
+        //                    return MPRemoteCommandHandlerStatus.success
+        //                }
         //        let skipBackwardCommand = remoteCommandCenter.skipBackwardCommand
         //        skipBackwardCommand.isEnabled = true
         //        skipBackwardCommand.preferredIntervals = [NSNumber(value : intervals)]
@@ -367,14 +426,12 @@ final class WZMusicHub: NSObject {
         //            print(#function)
         //            return MPRemoteCommandHandlerStatus.success
         //        }
-        ////        //耳机开关？
-        //        let changeShuffleModeCommand = remoteCommandCenter.changeShuffleModeCommand
+        
+        //                let changeShuffleModeCommand = remoteCommandCenter.changeShuffleModeCommand
         //        changeShuffleModeCommand.isEnabled = true
         //        changeShuffleModeCommand.currentShuffleType = MPShuffleType.collections
         //        changeShuffleModeCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
         //             print(#function)
-        //
-        //
         //            return MPRemoteCommandHandlerStatus.success
         //        }
         //
@@ -388,63 +445,10 @@ final class WZMusicHub: NSObject {
         //            return MPRemoteCommandHandlerStatus.success
         //        }
         
-        //反馈信息
-        //            let likeCommand = remoteCommandCenter.likeCommand
-        //            likeCommand.isEnabled = true
-        //            likeCommand.isActive = true
-        //            likeCommand.localizedTitle = "零零落落"
-        //            likeCommand.localizedShortTitle = "温柔"
-        //            likeCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
-        //
-        //                return MPRemoteCommandHandlerStatus.success
-        //            }
-        //
-        //            let dislikeCommand = remoteCommandCenter.dislikeCommand
-        //            dislikeCommand.isEnabled = true
-        //            dislikeCommand.isActive = true
-        //            dislikeCommand.localizedTitle = "dislikeCommand"
-        //            dislikeCommand.localizedShortTitle = "哈哈"
-        //            dislikeCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
-        //                return MPRemoteCommandHandlerStatus.success
-        //            }
-        //
-        //            let bookmarkCommand = remoteCommandCenter.bookmarkCommand
-        //            bookmarkCommand.isEnabled = true
-        //            bookmarkCommand.isActive = true
-        //            bookmarkCommand.localizedTitle = "bookmarkCommand"
-        //            bookmarkCommand.localizedShortTitle = "吼猴"
-        //            bookmarkCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
-        //                return MPRemoteCommandHandlerStatus.success
-        //            }
-        
-        //更改播放点位置
-        let changePlaybackPositionCommand = remoteCommandCenter.changePlaybackPositionCommand
-        changePlaybackPositionCommand.isEnabled = true
-        changePlaybackPositionCommand.addTarget { (commandEvent) -> MPRemoteCommandHandlerStatus in
-            //如何精确拖动的位置？
-            let event = commandEvent as! MPChangePlaybackPositionCommandEvent
-            
-            if self.player != nil {
-                //需要使用带回调的SeekTime 回调重新设置进度 否则播放进度条会停止
-                self.player?.seek(to: CMTimeMakeWithSeconds(event.positionTime, 600), completionHandler: { (finish) in
-                    //Q：拖动介绍后进度条不动了
-                    //重新修改进度条
-                    var dic = MPNowPlayingInfoCenter.default().nowPlayingInfo
-                    dic?[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: CMTimeGetSeconds(self.player!.currentTime()))
-                    MPNowPlayingInfoCenter.default().nowPlayingInfo = dic
-                })
-                
-                return MPRemoteCommandHandlerStatus.success
-            } else {
-                //更新位置
-                return MPRemoteCommandHandlerStatus.commandFailed
-            }
-        }
-        
     }
     
-    //MARK: - 对于其他APP也有音频视频相关的一个比较好的处理方式
-    ///恢复默认的后台播放模式
+    //MARK: - 音频会话处理
+    ///恢复默认的播放模式
     func recoverAudioBackMode() {
         let audioSession = AVAudioSession.sharedInstance()
         if audioSession.category == AVAudioSessionCategorySoloAmbient {
@@ -549,5 +553,6 @@ class WZMusicEntity {
     var thunbmail : String?
     var bundlePath: URL?//本地bundle保存的路径
     var localPath : URL?//本地磁盘保存的路径
-    var remoteURL : URL?//远程URL    
+    var remoteURL : URL?//远程URL
+    var like : Bool = false
 }
