@@ -30,6 +30,9 @@ class  WZEnsembleController: UIViewController , UICollectionViewDelegate , UICol
         super.viewDidLoad()
         self.view.backgroundColor = UIColor.white
         
+        WZMusicHub.share.pause();
+        WZMusicHub.share.entityList = []
+        
         self.audioConfigNotification()
         
         self.relaxList = ["5Types",
