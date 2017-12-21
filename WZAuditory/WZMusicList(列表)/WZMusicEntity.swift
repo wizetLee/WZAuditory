@@ -255,47 +255,47 @@ final class WZMusicHub: NSObject {
     }
     
     //MARK: - 媒体信息配置
-    ///配置多媒体控制面板的显示页面
-    func mediaItemArtwork() -> Void {
-        DispatchQueue.main.async {
-            let entity = self.currentEntity
-            
-            if entity != nil {
-                //根据数据配置控制项
-                let remoteCommandCenter = MPRemoteCommandCenter.shared()
-                remoteCommandCenter.likeCommand.isActive = self.currentEntity!.like
-                remoteCommandCenter.likeCommand.localizedTitle = (remoteCommandCenter.likeCommand.isActive == true) ? "不喜欢" : "喜欢"
+        ///配置多媒体控制面板的显示页面
+        func mediaItemArtwork() -> Void {
+            DispatchQueue.main.async {
+                let entity = self.currentEntity
+                
+                if entity != nil {
+                    //根据数据配置控制项
+                    let remoteCommandCenter = MPRemoteCommandCenter.shared()
+                    remoteCommandCenter.likeCommand.isActive = self.currentEntity!.like
+                    remoteCommandCenter.likeCommand.localizedTitle = (remoteCommandCenter.likeCommand.isActive == true) ? "不喜欢" : "喜欢"
 
-                //设置后台播放时显示的东西，例如歌曲名字，图片等
-                let image = UIImage(named: entity!.clear!)
-                if image != nil {
-                    var info : [String : Any] = Dictionary()
-                    ///标题
-                    info[MPMediaItemPropertyTitle] = entity!.bundlePath!.lastPathComponent
-                    ///作者
-                    info[MPMediaItemPropertyArtist] = "wizet"
-                    //相簿标题
-                    info[MPMediaItemPropertyAlbumTitle] = "相册标题"
-                    ///封面
-                    let artWork = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: { (size) -> UIImage in return image! })
-                    info[MPMediaItemPropertyArtwork] = artWork
-                    
-                    if self.itemDuration != nil {
-                        //当前播放进度 （会被自动计算出来，自动计算与MPNowPlayingInfoPropertyPlaybackRate设置的速率正相关)
-                        info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: CMTimeGetSeconds(self.player!.currentTime()))
-                        //调整外部显示的播放速率正常为1、一般都是根据内部播放器的播放速率作同步，一般不必修改
-                        //  info[MPNowPlayingInfoPropertyPlaybackRate] = NSNumber(value: 1)
+                    //设置后台播放时显示的东西，例如歌曲名字，图片等
+                    let image = UIImage(named: entity!.clear!)
+                    if image != nil {
+                        var info : [String : Any] = Dictionary()
+                        ///标题
+                        info[MPMediaItemPropertyTitle] = entity!.bundlePath!.lastPathComponent
+                        ///作者
+                        info[MPMediaItemPropertyArtist] = "wizet"
+                        //相簿标题
+                        info[MPMediaItemPropertyAlbumTitle] = "相册标题"
+                        ///封面
+                        let artWork = MPMediaItemArtwork(boundsSize: image!.size, requestHandler: { (size) -> UIImage in return image! })
+                        info[MPMediaItemPropertyArtwork] = artWork
                         
-                        //播放总时间
-                        let duration = CMTimeGetSeconds(self.itemDuration!)
-                        info[MPMediaItemPropertyPlaybackDuration] = NSNumber(value: duration)
+                        if self.itemDuration != nil {
+                            //当前播放进度 （会被自动计算出来，自动计算与MPNowPlayingInfoPropertyPlaybackRate设置的速率正相关)
+                            info[MPNowPlayingInfoPropertyElapsedPlaybackTime] = NSNumber(value: CMTimeGetSeconds(self.player!.currentTime()))
+                            //调整外部显示的播放速率正常为1、一般都是根据内部播放器的播放速率作同步，一般不必修改
+                            //  info[MPNowPlayingInfoPropertyPlaybackRate] = NSNumber(value: 1)
+                            
+                            //播放总时间 由当前播放的资源提供
+                            let duration = CMTimeGetSeconds(self.itemDuration!)
+                            info[MPMediaItemPropertyPlaybackDuration] = NSNumber(value: duration)
+                        }
+                        
+                        MPNowPlayingInfoCenter.default().nowPlayingInfo = info
                     }
-                    
-                    MPNowPlayingInfoCenter.default().nowPlayingInfo = info
                 }
             }
         }
-    }
     
     //MARK: - 远程控制配置
     ///配置远程控制显示的信息

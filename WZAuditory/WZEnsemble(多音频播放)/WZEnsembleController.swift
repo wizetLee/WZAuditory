@@ -111,6 +111,8 @@ class  WZEnsembleController: UIViewController , UICollectionViewDelegate , UICol
         layout.minimumInteritemSpacing = gap
         
         self.collection = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        
+//        self.view.translatesAutoresizingMaskIntoConstraints = false
         self.collection!.delegate = self
         self.collection!.dataSource = self
         //        self.collection!.register(WZEnsembleCell.classForCoder(), forCellWithReuseIdentifier: WZEnsembleCell.description())
@@ -179,7 +181,7 @@ class  WZEnsembleController: UIViewController , UICollectionViewDelegate , UICol
                 make.right.equalTo(self.view.safeAreaInsets.right)
                 make.left.equalTo(self.view.safeAreaInsets.left)
             } else {
-                make.top.equalToSuperview()
+                make.top.equalTo((self.navigationController?.navigationBar.bounds.size.height ?? 0) + UIApplication.shared.statusBarFrame.size.height)
                 make.left.equalToSuperview()
                 make.right.equalToSuperview()
             }

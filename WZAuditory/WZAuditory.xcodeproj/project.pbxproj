@@ -587,9 +587,9 @@
 		405BCA3F1FEAADDC0024274F /* WZMusicList(列表) */ = {
 			isa = PBXGroup;
 			children = (
+				8471D4D61FDE541A00A9CF87 /* WZMusicEntity.swift */,
 				8471D4D41FDE451200A9CF87 /* WZMusicHubController.swift */,
 				400875011FDD2C8400A8662B /* WZMusicRecycleController.swift */,
-				8471D4D61FDE541A00A9CF87 /* WZMusicEntity.swift */,
 				40FF520A1FDD782500A80B89 /* WZMusicRecycleCell.swift */,
 				8467070E1FDF6B310094B65F /* WZMusicResource */,
 			);
