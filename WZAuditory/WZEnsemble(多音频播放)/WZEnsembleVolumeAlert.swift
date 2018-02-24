@@ -39,10 +39,10 @@ class WZEnsembleVolumeAlert: WZBaseAlert {
         self.volumeView = WZEnsemble.getSystemVolumeView()
         self.addSubview(self.volumeView!)
        
+       
     }
     
     @objc func slider(sender : UISlider) {
-       
         WZEnsemble.slideSystemVolumne(volumneView: self.volumeView!, volumne: sender.value)
     }
     

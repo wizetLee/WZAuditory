@@ -87,19 +87,11 @@ class WZEnsemble {
     
     ///获取系统级别的声音控件
     static func getSystemVolumeView() -> MPVolumeView {
-        let mpView : MPVolumeView = MPVolumeView(frame: CGRect.zero)
-        mpView.clipsToBounds = true
-        mpView.showsRouteButton = false
-        mpView.alpha = 0.0
-        mpView.layer.opacity = 0.0
-        mpView.isUserInteractionEnabled = false
-        mpView.sizeToFit()
-        //难过~香菇
-        mpView.showsVolumeSlider = true ///设置为true 才会能调节声音成功
-//        mpView.isHidden = true
+        //frame位于视图之外时实现“隐藏”系统音量控件效果
+        let mpView : MPVolumeView = MPVolumeView(frame: CGRect(x: -1000, y: -1000, width: 40, height: 40))
+//        mpView.isHidden = false
         return mpView
     }
-    
     
     
     ///调节系统级别的声音 [0, 1]
@@ -114,7 +106,7 @@ class WZEnsemble {
         slider?.setValue(volumne, animated: true)
     }
     
-    
+    ///获取系统音量控制界面的slider
     static func slideSystemVolumneSlider(volumneView: MPVolumeView) -> UISlider? {
         var slider : UISlider?
         for view in volumneView.subviews {
