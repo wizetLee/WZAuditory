@@ -498,8 +498,7 @@ final class WZMusicHub: NSObject {
                
                 let interruptOption = sender.userInfo?[AVAudioSessionInterruptionOptionKey] as! UInt
                 if interruptOption == AVAudioSessionInterruptionOptions.shouldResume.rawValue {
-                        let lock = NSLock()
-                        lock.try()
+                    
                         //Step 1 设置为混合加duck模式
                         let audioSession = AVAudioSession.sharedInstance()
                         try? audioSession.setActive(true, with: AVAudioSessionSetActiveOptions.notifyOthersOnDeactivation)
@@ -515,7 +514,7 @@ final class WZMusicHub: NSObject {
                         try? audioSession.setCategory(AVAudioSessionCategoryPlayback, with: AVAudioSessionCategoryOptions())
                         print(audioSession.categoryOptions)
                         //Step 2 播放音频
-                        lock.unlock()
+                   
                     }
                     
                 } else {
