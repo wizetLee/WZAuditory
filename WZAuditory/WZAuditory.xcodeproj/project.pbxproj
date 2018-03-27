@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F2519B7C200F2D79A1A69AE /* Pods_WZAuditoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76A4493C6D3890E8827D4DF /* Pods_WZAuditoryUITests.framework */; };
 		400875021FDD2C8400A8662B /* WZMusicRecycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400875011FDD2C8400A8662B /* WZMusicRecycleController.swift */; };
+		40147664206A8A3700305264 /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40147663206A8A3600305264 /* ViewControllerTest.swift */; };
 		40FF518C1FDD72AB00A80B89 /* CrackingShip_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 40FF511C1FDD729600A80B89 /* CrackingShip_thumbnail.png */; };
 		40FF518D1FDD72AB00A80B89 /* StormWaves_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 40FF511D1FDD729600A80B89 /* StormWaves_thumbnail.png */; };
 		40FF518E1FDD72AB00A80B89 /* AsianDuet_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 40FF511E1FDD729600A80B89 /* AsianDuet_thumbnail.png */; };
@@ -287,6 +288,7 @@
 /* Begin PBXFileReference section */
 		155E6E3735761CECA8EC98CD /* Pods_WZAuditoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WZAuditoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		400875011FDD2C8400A8662B /* WZMusicRecycleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZMusicRecycleController.swift; sourceTree = "<group>"; };
+		40147663206A8A3600305264 /* ViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTest.swift; sourceTree = "<group>"; };
 		40FF511C1FDD729600A80B89 /* CrackingShip_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrackingShip_thumbnail.png; sourceTree = "<group>"; };
 		40FF511D1FDD729600A80B89 /* StormWaves_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StormWaves_thumbnail.png; sourceTree = "<group>"; };
 		40FF511E1FDD729600A80B89 /* AsianDuet_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AsianDuet_thumbnail.png; sourceTree = "<group>"; };
@@ -793,6 +795,7 @@
 			isa = PBXGroup;
 			children = (
 				846227941FD6B68000D37FAE /* WZAuditoryUITests.swift */,
+				40147663206A8A3600305264 /* ViewControllerTest.swift */,
 				846227961FD6B68000D37FAE /* Info.plist */,
 			);
 			path = WZAuditoryUITests;
@@ -1387,13 +1390,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WZAuditory-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		964DF0A0DC94DC8224B9D992 /* [CP] Embed Pods Frameworks */ = {
@@ -1432,9 +1438,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-WZAuditory/Pods-WZAuditory-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1447,13 +1458,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WZAuditoryUITests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		EC33439344E4CFF0D0D50E88 /* [CP] Check Pods Manifest.lock */ = {
@@ -1462,13 +1476,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-WZAuditoryTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F30ABDB3561061E821D4B6F0 /* [CP] Copy Pods Resources */ = {
@@ -1538,6 +1555,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40147664206A8A3700305264 /* ViewControllerTest.swift in Sources */,
 				846227951FD6B68000D37FAE /* WZAuditoryUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1690,7 +1708,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G583SJY324;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
 				INFOPLIST_FILE = WZAuditory/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1707,7 +1725,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = G583SJY324;
+				DEVELOPMENT_TEAM = 7MUPB6659U;
 				INFOPLIST_FILE = WZAuditory/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

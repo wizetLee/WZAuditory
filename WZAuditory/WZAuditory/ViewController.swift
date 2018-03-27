@@ -10,6 +10,16 @@ import UIKit
 import SnapKit
 import AVFoundation
 import MediaPlayer
+import Alamofire
+
+
+enum NickName : Int {
+    case A = 1
+    case B = 2
+    case C = 3
+    case D = 4
+    case E = 5
+}
 
 class ViewController: UIViewController , UITableViewDataSource , UITableViewDelegate {
     
@@ -24,10 +34,16 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
                     , ["title": WZMusicRecycleController.classForCoder()]
                     ]
         self.creatViews()
+     
     }
     
     deinit {
-       
+        print(#function);
+    }
+    
+    
+    func run() -> Void  {
+        print("～～～～～～～")
     }
     
     func creatViews() -> Void {
@@ -36,7 +52,62 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
         self.table!.register(UITableViewCell.classForCoder(), forCellReuseIdentifier: UITableViewCell.description())
         self.table!.delegate = self
         self.table!.dataSource = self
+
+   
+        //        ///http://api.seqier.com/api/bing/img_1366  图片URL
+        //get请求
+               let dataR: DataRequest =  Alamofire.request(URL.init(string: "http://api.seqier.com/api/bing/img_1366")!)
+        
+                dataR.responseData { (response : DataResponse) in
+                    switch response.result{
+                    case .success(_):
+                        response.result.value as AnyObject?
+                        print(response.result.value ?? "response.result.value = nil");
+                    case .failure(_):
+                        response.result.error as NSError?
+                        print(response.result.error ?? "response.result.error = nil");
+                    }
+                }
+
+        var emptyArray = [String]()
+        var emptyDictionary = Dictionary<String, Float>()
+
+        //        逃逸闭包:当函数执行结束后,才去调用函数内部的闭包,叫做逃逸闭包 @escaping
+        //        非逃逸闭包:当函数执行过程中,执行的函数内部的闭包,叫做非逃逸闭包 @noescape
+
+        let decimalInteger = 17           // 17 - 十进制表示
+        let binaryInteger = 0b10001       // 17 - 二进制表示
+        let octalInteger = 0o21           // 17 - 八进制表示
+        let hexadecimalInteger = 0x11     // 17 - 十六进制表示
+        let decimalDouble = 12.1875       //十进制浮点型字面量
+        let exponentDouble = 1.21875e1    //十进制浮点型字面量
+        let hexadecimalDouble = 0xC.3p0   //十六进制浮点型字面量
+
+
+
+
+        
     }
+    
+  
+    class CustomClass {
+        
+        static let name = "wizet"
+        var name:String?
+        
+        static func call(name : String) -> String {
+            return "hello!\(name)"
+        }
+        
+        init() {
+      
+        }
+        
+        init(name : String) {
+            self.name = name
+        }
+    }
+    
     
     //MARK:  针对于safeArea在viewDidLoad为zero 目前的处理方式 重新布局
     ///目前的方法是在这里进行重布局操作
