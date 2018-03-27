@@ -87,16 +87,20 @@ class WZEnsemble {
     
     ///获取系统级别的声音控件
     static func getSystemVolumeView() -> MPVolumeView {
-        let mpView : MPVolumeView = MPVolumeView(frame: CGRect.zero)
-        mpView.clipsToBounds = true
-        mpView.showsRouteButton = false
-        mpView.alpha = 0.0
-        mpView.layer.opacity = 0.0
-        mpView.isUserInteractionEnabled = false
-        mpView.sizeToFit()
-        //难过~香菇
-        mpView.showsVolumeSlider = true ///设置为true 才会能调节声音成功
-//        mpView.isHidden = true
+//        let mpView : MPVolumeView = MPVolumeView(frame: CGRect.zero)
+//        mpView.clipsToBounds = true
+//        mpView.showsRouteButton = false
+//        mpView.alpha = 0.0
+//        mpView.layer.opacity = 0.0
+//        mpView.isUserInteractionEnabled = false
+//        mpView.sizeToFit()
+//        //难过~香菇
+//        mpView.showsVolumeSlider = true ///设置为true 才会能调节声音成功
+////        mpView.isHidden = true
+        
+        let mpView : MPVolumeView = MPVolumeView(frame: CGRect(x: -1000, y: -1000, width: 40, height: 40))
+        mpView.isHidden = false
+     
         return mpView
     }
     
