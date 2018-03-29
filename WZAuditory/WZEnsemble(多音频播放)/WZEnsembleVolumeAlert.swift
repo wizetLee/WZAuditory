@@ -21,9 +21,9 @@ class WZEnsembleVolumeAlert: WZBaseAlert {
         
         let gap : CGFloat = 20.0
         var _ : CGFloat = 0.0
-        var y : CGFloat = SCREEN_HEIGHT - 44.0
-        let width : CGFloat = SCREEN_WIDTH - gap * 2
-//        var height : CGFloat = SCREEN_HEIGHT - 44.0
+        var y : CGFloat = screen_height - 44.0
+        let width : CGFloat = screen_width - gap * 2
+//        var height : CGFloat = screen_height - 44.0
         if #available(iOS 11.0, *) {
             y = y - self.safeAreaInsets.bottom
         }

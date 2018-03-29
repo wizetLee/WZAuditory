@@ -8,6 +8,7 @@ target 'WZAuditory' do
   # Pods for WZAuditory
   pod 'SnapKit', '~> 4.0.0'
   pod 'Alamofire'
+  pod 'MBProgressHUD'
 
   target 'WZAuditoryTests' do
     inherit! :search_paths

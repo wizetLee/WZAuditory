@@ -13,6 +13,8 @@ import MediaPlayer
 import Alamofire
 
 
+typealias CustomInt = Int
+
 enum NickName : Int {
     case A = 1
     case B = 2
@@ -20,8 +22,61 @@ enum NickName : Int {
     case D = 4
     case E = 5
 }
+/*吃饭协议*/
+
+struct Wizet : Codable {
+    let name : String?
+    let age : UInt?
+    
+}
+
+class Person : eatProtocol {
+    
+    //imp eatProtocol
+    func eat() {
+        print("吃饭")
+    }
+    
+}
+///对person进行扩展
+extension Person {
+//    var nickname : String?//Extensions may not contain stored properties  不能扩展计算存储，只能扩展存储属性
+    func addTwo(one : Int , two : Int) -> Int {
+        if one is Int {//类型检查
+            
+        }
+        if two is Int {
+            
+        }
+      
+        
+        
+        return one+two;
+    }
+}
+
+///
+
+protocol eatProtocol {
+    func eat() -> Void;
+}
+
+//只拓展给UIView类型的
+extension eatProtocol where Self : UIView {
+    func eatSth() -> Void {
+        print("earSth")
+    }
+}
+
+//class CustomView: UIView, eatProtocol {
+//    func eat() {
+//        print(self)
+//        self.eatSth()
+//    }
+//}
 
 class ViewController: UIViewController , UITableViewDataSource , UITableViewDelegate {
+    
     
     var table : UITableView?
     var list : [Dictionary<String, AnyClass>]?
@@ -35,6 +90,7 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
                     ]
         self.creatViews()
      
+
     }
     
     deinit {
@@ -42,8 +98,9 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
     }
     
     
+    ///单元测试
     func run() -> Void  {
-        print("～～～～～～～")
+        print("单元测试啊～～～")
     }
     
     func creatViews() -> Void {
@@ -53,7 +110,7 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
         self.table!.delegate = self
         self.table!.dataSource = self
 
-   
+        
         //        ///http://api.seqier.com/api/bing/img_1366  图片URL
         //get请求
                let dataR: DataRequest =  Alamofire.request(URL.init(string: "http://api.seqier.com/api/bing/img_1366")!)
@@ -68,7 +125,7 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
                         print(response.result.error ?? "response.result.error = nil");
                     }
                 }
-
+ 
         var emptyArray = [String]()
         var emptyDictionary = Dictionary<String, Float>()
 
@@ -85,7 +142,29 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
 
 
 
-
+        var arr = [1, 2,3, 4, 5]
+        arr = arr.map { (varr) -> Int in
+            return (varr * 10)
+        }
+        print(arr)
+        
+        arr = arr.filter { (varr) -> Bool in
+            return (varr > 30)
+        }
+        print(arr)
+        
+        var arrSum = arr.reduce(0) { (sum, varr) -> Int in
+             return (varr+sum);
+        }
+        
+      
+        print(arrSum)
+      
+        var valuetest = 1
+        guard valuetest != 1  else {
+            print("false false ~~~")
+            return
+        }
         
     }
     

@@ -9,7 +9,14 @@
 /* Begin PBXBuildFile section */
 		0F2519B7C200F2D79A1A69AE /* Pods_WZAuditoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76A4493C6D3890E8827D4DF /* Pods_WZAuditoryUITests.framework */; };
 		400875021FDD2C8400A8662B /* WZMusicRecycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400875011FDD2C8400A8662B /* WZMusicRecycleController.swift */; };
-		40147664206A8A3700305264 /* ViewControllerTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40147663206A8A3600305264 /* ViewControllerTest.swift */; };
+		400C8F5C206CC4940065B0A6 /* UIView+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F4E206CC4940065B0A6 /* UIView+Extentions.swift */; };
+		400C8F5D206CC4940065B0A6 /* String+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F4F206CC4940065B0A6 /* String+Extentions.swift */; };
+		400C8F5E206CC4940065B0A6 /* Int+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F50206CC4940065B0A6 /* Int+Extentions.swift */; };
+		400C8F5F206CC4940065B0A6 /* NibIdentifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F51206CC4940065B0A6 /* NibIdentifiable.swift */; };
+		400C8F60206CC4940065B0A6 /* UIScrollView+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F52206CC4940065B0A6 /* UIScrollView+Extentions.swift */; };
+		400C8F61206CC4940065B0A6 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F53206CC4940065B0A6 /* URL.swift */; };
+		400C8F62206CC4940065B0A6 /* Date+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F54206CC4940065B0A6 /* Date+Extentions.swift */; };
+		40408303206C888F00F0CE62 /* ViewControllerTest's.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40408302206C888F00F0CE62 /* ViewControllerTest's.swift */; };
 		40FF518C1FDD72AB00A80B89 /* CrackingShip_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 40FF511C1FDD729600A80B89 /* CrackingShip_thumbnail.png */; };
 		40FF518D1FDD72AB00A80B89 /* StormWaves_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 40FF511D1FDD729600A80B89 /* StormWaves_thumbnail.png */; };
 		40FF518E1FDD72AB00A80B89 /* AsianDuet_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 40FF511E1FDD729600A80B89 /* AsianDuet_thumbnail.png */; };
@@ -288,7 +295,14 @@
 /* Begin PBXFileReference section */
 		155E6E3735761CECA8EC98CD /* Pods_WZAuditoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WZAuditoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		400875011FDD2C8400A8662B /* WZMusicRecycleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZMusicRecycleController.swift; sourceTree = "<group>"; };
-		40147663206A8A3600305264 /* ViewControllerTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerTest.swift; sourceTree = "<group>"; };
+		400C8F4E206CC4940065B0A6 /* UIView+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extentions.swift"; sourceTree = "<group>"; };
+		400C8F4F206CC4940065B0A6 /* String+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extentions.swift"; sourceTree = "<group>"; };
+		400C8F50206CC4940065B0A6 /* Int+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extentions.swift"; sourceTree = "<group>"; };
+		400C8F51206CC4940065B0A6 /* NibIdentifiable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NibIdentifiable.swift; sourceTree = "<group>"; };
+		400C8F52206CC4940065B0A6 /* UIScrollView+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extentions.swift"; sourceTree = "<group>"; };
+		400C8F53206CC4940065B0A6 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		400C8F54206CC4940065B0A6 /* Date+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extentions.swift"; sourceTree = "<group>"; };
+		40408302206C888F00F0CE62 /* ViewControllerTest's.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerTest's.swift"; sourceTree = "<group>"; };
 		40FF511C1FDD729600A80B89 /* CrackingShip_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrackingShip_thumbnail.png; sourceTree = "<group>"; };
 		40FF511D1FDD729600A80B89 /* StormWaves_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StormWaves_thumbnail.png; sourceTree = "<group>"; };
 		40FF511E1FDD729600A80B89 /* AsianDuet_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = AsianDuet_thumbnail.png; sourceTree = "<group>"; };
@@ -586,6 +600,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		400C8F4C206CC4940065B0A6 /* Extentions */ = {
+			isa = PBXGroup;
+			children = (
+				400C8F4E206CC4940065B0A6 /* UIView+Extentions.swift */,
+				400C8F52206CC4940065B0A6 /* UIScrollView+Extentions.swift */,
+				400C8F4F206CC4940065B0A6 /* String+Extentions.swift */,
+				400C8F50206CC4940065B0A6 /* Int+Extentions.swift */,
+				400C8F51206CC4940065B0A6 /* NibIdentifiable.swift */,
+				400C8F53206CC4940065B0A6 /* URL.swift */,
+				400C8F54206CC4940065B0A6 /* Date+Extentions.swift */,
+			);
+			path = Extentions;
+			sourceTree = "<group>";
+		};
 		405BCA3F1FEAADDC0024274F /* WZMusicList(列表) */ = {
 			isa = PBXGroup;
 			children = (
@@ -772,6 +800,7 @@
 				846227741FD6B68000D37FAE /* AppDelegate.swift */,
 				846227761FD6B68000D37FAE /* ViewController.swift */,
 				840E3E971FE3A28F00A5D559 /* WZAudioFileStreamController.swift */,
+				400C8F4C206CC4940065B0A6 /* Extentions */,
 				840F2D001FDFEA14000E59D6 /* WZAudioFileStreamController.xib */,
 				40FF520B1FDD782500A80B89 /* WZMusicRecycleCell.xib */,
 				846227781FD6B68000D37FAE /* Main.storyboard */,
@@ -786,6 +815,7 @@
 			isa = PBXGroup;
 			children = (
 				846227891FD6B68000D37FAE /* WZAuditoryTests.swift */,
+				40408302206C888F00F0CE62 /* ViewControllerTest's.swift */,
 				8462278B1FD6B68000D37FAE /* Info.plist */,
 			);
 			path = WZAuditoryTests;
@@ -795,7 +825,6 @@
 			isa = PBXGroup;
 			children = (
 				846227941FD6B68000D37FAE /* WZAuditoryUITests.swift */,
-				40147663206A8A3600305264 /* ViewControllerTest.swift */,
 				846227961FD6B68000D37FAE /* Info.plist */,
 			);
 			path = WZAuditoryUITests;
@@ -1440,11 +1469,13 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-WZAuditory/Pods-WZAuditory-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1525,19 +1556,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				400C8F60206CC4940065B0A6 /* UIScrollView+Extentions.swift in Sources */,
 				846A386D1FD7752F00C6FB7B /* WZEnsemble.swift in Sources */,
+				400C8F61206CC4940065B0A6 /* URL.swift in Sources */,
 				847985411FDA2FFA002102DD /* WZDefineFile.swift in Sources */,
 				847985381FDA229C002102DD /* WZBaseAlert.swift in Sources */,
 				8479853D1FDA2D03002102DD /* WZEnsembleVolumeAlert.swift in Sources */,
 				8479FE991FD8F9E2007B6732 /* WZAudioControlBar.swift in Sources */,
 				840E3E981FE3A28F00A5D559 /* WZAudioFileStreamController.swift in Sources */,
+				400C8F5D206CC4940065B0A6 /* String+Extentions.swift in Sources */,
 				8471D4D31FDE080200A9CF87 /* WZEnsembleController.swift in Sources */,
 				8479853B1FDA22CE002102DD /* WZToast.swift in Sources */,
 				846227771FD6B68000D37FAE /* ViewController.swift in Sources */,
+				400C8F5C206CC4940065B0A6 /* UIView+Extentions.swift in Sources */,
 				846227751FD6B68000D37FAE /* AppDelegate.swift in Sources */,
 				8471D4D51FDE451200A9CF87 /* WZMusicHubController.swift in Sources */,
 				400875021FDD2C8400A8662B /* WZMusicRecycleController.swift in Sources */,
 				8471D4D71FDE541A00A9CF87 /* WZMusicEntity.swift in Sources */,
+				400C8F62206CC4940065B0A6 /* Date+Extentions.swift in Sources */,
+				400C8F5E206CC4940065B0A6 /* Int+Extentions.swift in Sources */,
+				400C8F5F206CC4940065B0A6 /* NibIdentifiable.swift in Sources */,
 				8460B99D1FD7819400F81E73 /* WZEnsembleCell.swift in Sources */,
 				40FF520C1FDD782500A80B89 /* WZMusicRecycleCell.swift in Sources */,
 			);
@@ -1547,6 +1585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40408303206C888F00F0CE62 /* ViewControllerTest's.swift in Sources */,
 				8462278A1FD6B68000D37FAE /* WZAuditoryTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1555,7 +1594,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				40147664206A8A3700305264 /* ViewControllerTest.swift in Sources */,
 				846227951FD6B68000D37FAE /* WZAuditoryUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
