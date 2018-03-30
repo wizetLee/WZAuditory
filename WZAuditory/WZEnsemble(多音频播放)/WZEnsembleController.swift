@@ -161,6 +161,7 @@ class  WZEnsembleController: UIViewController , UICollectionViewDelegate , UICol
     ///目前的方法是在这里进行重布局操作
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
+
         self.controlBar!.snp.makeConstraints { (make) in
             make.height.equalTo(44.0)
             if #available(iOS 11.0, *) {

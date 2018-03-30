@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0F2519B7C200F2D79A1A69AE /* Pods_WZAuditoryUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F76A4493C6D3890E8827D4DF /* Pods_WZAuditoryUITests.framework */; };
 		400875021FDD2C8400A8662B /* WZMusicRecycleController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400875011FDD2C8400A8662B /* WZMusicRecycleController.swift */; };
+		400B77AD206DE1A600968A15 /* U17TestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400B77AC206DE1A600968A15 /* U17TestController.swift */; };
 		400C8F5C206CC4940065B0A6 /* UIView+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F4E206CC4940065B0A6 /* UIView+Extentions.swift */; };
 		400C8F5D206CC4940065B0A6 /* String+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F4F206CC4940065B0A6 /* String+Extentions.swift */; };
 		400C8F5E206CC4940065B0A6 /* Int+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F50206CC4940065B0A6 /* Int+Extentions.swift */; };
@@ -295,6 +296,7 @@
 /* Begin PBXFileReference section */
 		155E6E3735761CECA8EC98CD /* Pods_WZAuditoryTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_WZAuditoryTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		400875011FDD2C8400A8662B /* WZMusicRecycleController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WZMusicRecycleController.swift; sourceTree = "<group>"; };
+		400B77AC206DE1A600968A15 /* U17TestController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = U17TestController.swift; sourceTree = "<group>"; };
 		400C8F4E206CC4940065B0A6 /* UIView+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Extentions.swift"; sourceTree = "<group>"; };
 		400C8F4F206CC4940065B0A6 /* String+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "String+Extentions.swift"; sourceTree = "<group>"; };
 		400C8F50206CC4940065B0A6 /* Int+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Int+Extentions.swift"; sourceTree = "<group>"; };
@@ -600,6 +602,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		400B77AB206DE14400968A15 /* U17Test */ = {
+			isa = PBXGroup;
+			children = (
+				400B77AC206DE1A600968A15 /* U17TestController.swift */,
+			);
+			path = U17Test;
+			sourceTree = "<group>";
+		};
 		400C8F4C206CC4940065B0A6 /* Extentions */ = {
 			isa = PBXGroup;
 			children = (
@@ -771,6 +781,7 @@
 		846227681FD6B68000D37FAE = {
 			isa = PBXGroup;
 			children = (
+				400B77AB206DE14400968A15 /* U17Test */,
 				405BCA3F1FEAADDC0024274F /* WZMusicList(列表) */,
 				847985341FDA1BFF002102DD /* WZEnsemble(多音频播放) */,
 				847985311FDA1A1B002102DD /* WZComponentLibrary */,
@@ -1561,6 +1572,7 @@
 				400C8F61206CC4940065B0A6 /* URL.swift in Sources */,
 				847985411FDA2FFA002102DD /* WZDefineFile.swift in Sources */,
 				847985381FDA229C002102DD /* WZBaseAlert.swift in Sources */,
+				400B77AD206DE1A600968A15 /* U17TestController.swift in Sources */,
 				8479853D1FDA2D03002102DD /* WZEnsembleVolumeAlert.swift in Sources */,
 				8479FE991FD8F9E2007B6732 /* WZAudioControlBar.swift in Sources */,
 				840E3E981FE3A28F00A5D559 /* WZAudioFileStreamController.swift in Sources */,

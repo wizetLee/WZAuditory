@@ -87,10 +87,10 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
         
         self.list = [["title": WZEnsembleController.classForCoder()]
                     , ["title": WZMusicRecycleController.classForCoder()]
+                    , ["title": U17TestController.classForCoder()]
                     ]
         self.creatViews()
      
-
     }
     
     deinit {
@@ -110,61 +110,8 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
         self.table!.delegate = self
         self.table!.dataSource = self
 
-        
-        //        ///http://api.seqier.com/api/bing/img_1366  图片URL
-        //get请求
-               let dataR: DataRequest =  Alamofire.request(URL.init(string: "http://api.seqier.com/api/bing/img_1366")!)
-        
-                dataR.responseData { (response : DataResponse) in
-                    switch response.result{
-                    case .success(_):
-                        response.result.value as AnyObject?
-                        print(response.result.value ?? "response.result.value = nil");
-                    case .failure(_):
-                        response.result.error as NSError?
-                        print(response.result.error ?? "response.result.error = nil");
-                    }
-                }
- 
-        var emptyArray = [String]()
-        var emptyDictionary = Dictionary<String, Float>()
+       
 
-        //        逃逸闭包:当函数执行结束后,才去调用函数内部的闭包,叫做逃逸闭包 @escaping
-        //        非逃逸闭包:当函数执行过程中,执行的函数内部的闭包,叫做非逃逸闭包 @noescape
-
-        let decimalInteger = 17           // 17 - 十进制表示
-        let binaryInteger = 0b10001       // 17 - 二进制表示
-        let octalInteger = 0o21           // 17 - 八进制表示
-        let hexadecimalInteger = 0x11     // 17 - 十六进制表示
-        let decimalDouble = 12.1875       //十进制浮点型字面量
-        let exponentDouble = 1.21875e1    //十进制浮点型字面量
-        let hexadecimalDouble = 0xC.3p0   //十六进制浮点型字面量
-
-
-
-        var arr = [1, 2,3, 4, 5]
-        arr = arr.map { (varr) -> Int in
-            return (varr * 10)
-        }
-        print(arr)
-        
-        arr = arr.filter { (varr) -> Bool in
-            return (varr > 30)
-        }
-        print(arr)
-        
-        var arrSum = arr.reduce(0) { (sum, varr) -> Int in
-             return (varr+sum);
-        }
-        
-      
-        print(arrSum)
-      
-        var valuetest = 1
-        guard valuetest != 1  else {
-            print("false false ~~~")
-            return
-        }
         
     }
     
