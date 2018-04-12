@@ -88,6 +88,7 @@ class ViewController: UIViewController , UITableViewDataSource , UITableViewDele
         self.list = [["title": WZEnsembleController.classForCoder()]
                     , ["title": WZMusicRecycleController.classForCoder()]
                     , ["title": U17TestController.classForCoder()]
+                    , ["title": ChainController.classForCoder()]
                     ]
         self.creatViews()
      

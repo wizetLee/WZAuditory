@@ -17,6 +17,7 @@
 		400C8F60206CC4940065B0A6 /* UIScrollView+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F52206CC4940065B0A6 /* UIScrollView+Extentions.swift */; };
 		400C8F61206CC4940065B0A6 /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F53206CC4940065B0A6 /* URL.swift */; };
 		400C8F62206CC4940065B0A6 /* Date+Extentions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 400C8F54206CC4940065B0A6 /* Date+Extentions.swift */; };
+		4019882F207762E500F52E0E /* ChainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4019882E207762E500F52E0E /* ChainController.swift */; };
 		40408303206C888F00F0CE62 /* ViewControllerTest's.swift in Sources */ = {isa = PBXBuildFile; fileRef = 40408302206C888F00F0CE62 /* ViewControllerTest's.swift */; };
 		40FF518C1FDD72AB00A80B89 /* CrackingShip_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 40FF511C1FDD729600A80B89 /* CrackingShip_thumbnail.png */; };
 		40FF518D1FDD72AB00A80B89 /* StormWaves_thumbnail.png in Resources */ = {isa = PBXBuildFile; fileRef = 40FF511D1FDD729600A80B89 /* StormWaves_thumbnail.png */; };
@@ -304,6 +305,7 @@
 		400C8F52206CC4940065B0A6 /* UIScrollView+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIScrollView+Extentions.swift"; sourceTree = "<group>"; };
 		400C8F53206CC4940065B0A6 /* URL.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
 		400C8F54206CC4940065B0A6 /* Date+Extentions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Date+Extentions.swift"; sourceTree = "<group>"; };
+		4019882E207762E500F52E0E /* ChainController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChainController.swift; sourceTree = "<group>"; };
 		40408302206C888F00F0CE62 /* ViewControllerTest's.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewControllerTest's.swift"; sourceTree = "<group>"; };
 		40FF511C1FDD729600A80B89 /* CrackingShip_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = CrackingShip_thumbnail.png; sourceTree = "<group>"; };
 		40FF511D1FDD729600A80B89 /* StormWaves_thumbnail.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = StormWaves_thumbnail.png; sourceTree = "<group>"; };
@@ -624,6 +626,14 @@
 			path = Extentions;
 			sourceTree = "<group>";
 		};
+		4019882D207762CC00F52E0E /* Filter */ = {
+			isa = PBXGroup;
+			children = (
+				4019882E207762E500F52E0E /* ChainController.swift */,
+			);
+			path = Filter;
+			sourceTree = "<group>";
+		};
 		405BCA3F1FEAADDC0024274F /* WZMusicList(列表) */ = {
 			isa = PBXGroup;
 			children = (
@@ -781,6 +791,7 @@
 		846227681FD6B68000D37FAE = {
 			isa = PBXGroup;
 			children = (
+				4019882D207762CC00F52E0E /* Filter */,
 				400B77AB206DE14400968A15 /* U17Test */,
 				405BCA3F1FEAADDC0024274F /* WZMusicList(列表) */,
 				847985341FDA1BFF002102DD /* WZEnsemble(多音频播放) */,
@@ -1590,6 +1601,7 @@
 				400C8F5F206CC4940065B0A6 /* NibIdentifiable.swift in Sources */,
 				8460B99D1FD7819400F81E73 /* WZEnsembleCell.swift in Sources */,
 				40FF520C1FDD782500A80B89 /* WZMusicRecycleCell.swift in Sources */,
+				4019882F207762E500F52E0E /* ChainController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
